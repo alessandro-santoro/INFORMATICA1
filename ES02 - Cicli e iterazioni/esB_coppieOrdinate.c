@@ -1,8 +1,7 @@
 /** ****************************************************************************************
 * \mainpage esB_coppieOrdinate.c
 *
-* @brief Scrivere un programma che visualizzi tutte le coppie ordinate di numeri naturali 
-*        la cui somma è 15. 
+* @brief Scrivere un programma che visualizzi tutte le coppie ordinate di numeri naturali la cui somma Ã¨ 15. 
 * 
 * @author alessandro santoro
 * @date 02/12/2022
@@ -12,7 +11,7 @@
 
 int main() 
 {
-	int c,co;           
+  int c,co;           
 	
 	
     for( c = 1; c < 8; c++)              
@@ -23,7 +22,7 @@ int main()
 			
             if( c + co == 15 ) 
 					                    
-                	printf("%d + %d \n", c, co);
+              	printf("%d + %d \n", c, co);
             	
                 
                 
