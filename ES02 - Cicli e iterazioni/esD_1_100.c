@@ -15,23 +15,23 @@ int main()
 {
 
     
-    int i, i1, cont=1;        
+    int c, c1, contr=1;        
 
-    for(i=2; i<101; i++) 
+    for(c=2; c<101; c++) 
     {     
         
-        for(i1 = 2; i1<i; i1++) 
+        for(c1 = 2; c1<c; c1++) 
         {     
         	
            
-            if(i % i1 == 0) 
-                cont=0;          
+            if(c % c1 == 0) 
+                contr=0;          
   
         }
      
-        if(cont) 
-            printf("%d e' un numero primo \n", i);
+        if(contr) 
+            printf("%d e' un numero primo \n", c);
          
-        cont=1;
+        contr=1;
     }
 }
