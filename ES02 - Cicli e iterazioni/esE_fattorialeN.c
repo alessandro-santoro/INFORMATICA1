@@ -9,7 +9,7 @@
 * @date 04/12/2022
 */
 
-#include <stdio.h>      
+#include <stdio.h>  //librerie    
 
 int main()  
 {
@@ -19,9 +19,9 @@ int main()
     printf("Inserisci un numero: ");   
     scanf("%d", &n);
 
-    if(n>0) 
+    if(n>0)    //controllo se il numero è positivo
 	{                           
-        for(c=n-1; c>0; c--) 
+        for(c=n-1; c>0; c--)   //moltiplico il numero per tutti i numeri minori di esso
 		{
             n *= c;                     
         }
