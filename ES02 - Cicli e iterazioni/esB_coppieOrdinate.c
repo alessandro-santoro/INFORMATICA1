@@ -7,20 +7,20 @@
 * @date 02/12/2022
 */
 
-#include <stdio.h>      
+#include <stdio.h>   //librerie    
 
 int main() 
 {
   int c,co;           
 	
 	
-    for( c = 1; c < 8; c++)              
+    for( c = 1; c < 8; c++)     //iterazione primo addendo con limite 8      
 		
 		
-        for( co = 1; co < 15; co++ )         
+        for( co = 1; co < 15; co++ )    //iterazione secondo addendo     
 			
 			
-            if( c + co == 15 ) 
+            if( c + co == 15 )     //risultato è 15
 					                    
               	printf("%d + %d \n", c, co);
             	
