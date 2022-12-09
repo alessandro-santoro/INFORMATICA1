@@ -2,7 +2,7 @@
 * \mainpage esC_media.c
 *
 * @brief Si scriva un programma per calcolare la media aritmetica di una serie di numeri 
-*        inseriti da tastiera. L’introduzione del valore 0 indica il termine del caricamento 
+*        inseriti da tastiera. Lâ€™introduzione del valore 0 indica il termine del caricamento 
 *        dei dati.
 * 
 * @author alessandro santoro
@@ -17,7 +17,7 @@ int main()
 	int num, c=0, somma=0;       
     float media=0;             
 
-    do 
+    do  						//ciclo richiesta input e somma numeri inseriti
     {                                         
         printf("Insersici un numero: ");
         scanf("%d", &num);
@@ -28,7 +28,7 @@ int main()
             c++;                                
     } while (num!=0);                         
 
-    media /= c;             
+    media /= c;             //calcolo media
 
     printf("\nLa media dei numeri e' %.2f\n", media);
 }
