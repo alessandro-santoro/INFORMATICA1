@@ -9,7 +9,7 @@
 * @date 05/12/2022
 */
 
-#include <stdio.h>      
+#include <stdio.h>      //librerie
 
 int main()  
 {
@@ -17,10 +17,10 @@ int main()
     
     int c, c1, contr=1;        
 
-    for(c=2; c<101; c++) 
+    for(c=2; c<101; c++)    //tutti i numeri dal 2 al 100
     {     
         
-        for(c1 = 2; c1<c; c1++) 
+        for(c1 = 2; c1<c; c1++)   // tutti i numeri dal 2 all'indice del primo ciclo
         {     
         	
            
@@ -29,9 +29,9 @@ int main()
   
         }
      
-        if(contr) 
+        if(contr)        //stampo il numero solo se la varibile di controllo è su vero
             printf("%d e' un numero primo \n", c);
          
-        contr=1;
+        contr=1; /// riassegno 1 alla variabile di controllo
     }
 }
