@@ -160,7 +160,7 @@ int mcd(int n1,int n2,int ris)
 
 int somma_divisori(int num3)
 {
-    int ris,cont;
+    int ris,cont, somma=0;
     for(cont=1;cont<=num3;cont++)
     
         if(num3%cont==0)
