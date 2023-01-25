@@ -75,7 +75,7 @@ int main()
         r = menu();
         switch(r)
         {
-            case 0: printf("\n Fine programma \n");
+            case 0: printf("\n Fine programma \n");     // fine programma
             
                     break;
                    
@@ -85,37 +85,37 @@ int main()
 					printf("\n inserisci il primo numero: ");
                     scanf("%d",&n1);
                     
-                    printf("\n inserisci il secondo numero: ");
+                    printf("\n inserisci il secondo numero: "); // chiedo valori all'utente 
                     scanf("%d",&n2); 
                     
-                   ris = mcd ( n1 , n2 , ris );
+                   ris = mcd ( n1 , n2 , ris );     //calcolo mcd
                     
-                    printf("il massimo comune divisore e: %d\n",ris);
+                    printf("il massimo comune divisore e: %d\n",ris); //stampo a scermo il risultato
                     
                     break;
                     
                     
             case 2: printf("\nhai scelto somma divisori");
             
-					printf("\ninserisci un numero dal quale verranno sommati i divisori:  ");
+					printf("\ninserisci un numero dal quale verranno sommati i divisori:  ");        //chiedo valori all'tente 
                     scanf("%d",&n1);
                     
-                    ris = somma_divisori ( n1 );
+                    ris = somma_divisori ( n1 );  // calcolo la somma dei divisori
                     
-                    printf("la somma dei divisori di %d e %d \n",n1,ris); 
+                    printf("la somma dei divisori di %d e %d \n",n1,ris); //stampo a scermo il risultato
                     
                     break;
                     
             case 3: printf("\n hai scelto area rettangolo");
-					printf("\ninserisci la base del rettangolo:  ");
+					printf("\ninserisci la base del rettangolo:  ");        // chiedo valori all'utente 
                     scanf("%d",&n1);
                     
                     printf("inserisci l'altezza del rettangolo:  ");
                     scanf("%d",&n2);
                     
-                    ris = area_rettangolo ( n1 , n2 );
+                    ris = area_rettangolo ( n1 , n2 );      // calcolo area rettangolo
                     
-                    printf("l'area del rettangolo e %d\n",ris);  
+                    printf("l'area del rettangolo e %d\n",ris);  //stampo a scermo il risultato
                     
                     break;
                     
@@ -141,7 +141,7 @@ int menu()
     printf("\n digita 0 per uscire dal programma\n");
     printf("\n digita 1 per calcolare l'mcd tra due numeri interi\n");
     printf("\n digita 2 per calcolare la somma tra i divisori du un numero intero\n");
-    printf("\n digita 3 per calcolare l'area di un rettangolo con base e altezza ineri\n");
+    printf("\n digita 3 per calcolare l'area di un rettangolo con base e altezza ineri\n");  // menu del programma
     printf(" inserisci:  ");
     scanf("%d",&risp);
     return risp;
@@ -152,7 +152,7 @@ int mcd(int n1,int n2,int ris)
     while (n2 != 0) 
     {
         ris = n2;
-        n2 = n1 % n2;
+        n2 = n1 % n2;       // funzione mcd
         n1 = ris;
     }
     return n1;
@@ -164,7 +164,7 @@ int somma_divisori(int num3)
     for(cont=1;cont<=num3;cont++)
     
         if(num3%cont==0)
-        somma=somma+cont;
+        somma=somma+cont;       //funzione somma divisori
         return somma;  
        
 }
@@ -172,6 +172,6 @@ int somma_divisori(int num3)
 int area_rettangolo(int x,int y)
 {
     int ris;
-    ris=x*y;
+    ris=x*y;        //funzione area rettangolo
     return ris;
 }
