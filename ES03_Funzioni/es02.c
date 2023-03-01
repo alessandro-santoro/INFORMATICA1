@@ -52,6 +52,7 @@ void scambio(int x, int y);
 int mcd(int,int);
 
 
+
 /** ****************************************************************************************
 * @brief restituisce la somma dei divisori di un numero inserito da tastiera
 * @param n3
@@ -97,7 +98,7 @@ int fibonacci(int);
 */
 int pari_dispari ();
 
- void stampa_divisori(int x);
+
 
 
 
@@ -125,7 +126,7 @@ int main()
                     printf("\n inserisci il secondo numero: "); // chiedo valori all'utente 
                     scanf("%d",&n2); 
                     
-                   ris = mcd ( n1 , n2 , ris );     //calcolo mcd
+                   ris = mcd ( n1 , n2 );     //calcolo mcd
                     
                     printf("il massimo comune divisore e: %d\n",ris); //stampo a scermo il risultato
                     
@@ -212,7 +213,7 @@ void scambio(int x, int y)
 
  
 }
-int mcd(int n1,int n2,int ris)
+int mcd(int n1,int n2)
 {
     int resto;
 
@@ -245,8 +246,9 @@ int somma_divisori(int num3)
     for(cont=1;cont<=num3;cont++)
     
         if(num3%cont==0)
-        somma=somma+cont;       //funzione somma divisori
-        return somma;  
+            somma=somma+cont;       //funzione somma divisori
+        
+    return somma;  
        
 }
 
@@ -268,4 +270,3 @@ int pari_dispari (int x)
 
 }
 
- void stampa_divisori(int x)
