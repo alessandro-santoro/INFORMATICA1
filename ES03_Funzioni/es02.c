@@ -18,6 +18,7 @@
 #include<limits.h>
 #include<stdlib.h>
 
+
 /** ****************************************************************************************
 * @brief menu che chiede ad inizio programma quale funzione usare
 * @param nessuno
@@ -28,6 +29,16 @@
 */
 int menu();
 
+/** ****************************************************************************************
+* @brief scambia le variabili
+* @param y
+* @param x
+* @retval lo scambio
+*
+* @author Alessandro Santoro
+* @version 1.0 13/01/2023 versione iniziale
+*/
+void scambio(int x, int y);
 
 /** ****************************************************************************************
 * @brief restituisce il massimo comume divisore di due numeri
@@ -38,8 +49,7 @@ int menu();
 * @author Alessandro Santoro
 * @version 1.0 13/01/2023 versione iniziale
 */
-int mcd(int,int,int);
-
+int mcd(int,int);
 
 
 /** ****************************************************************************************
@@ -77,7 +87,6 @@ int area_rettangolo(int,int);
 int fibonacci(int);
 
 
-
 /** ****************************************************************************************
 * @brief chiede un numero all'utente e determina se il numero inserito è pari o dispari
 * @param 
@@ -86,8 +95,9 @@ int fibonacci(int);
 * @author Alessandro Santoro
 * @version 1.0 03/02/2023 versione iniziale
 */
-int pari_dispari ()
+int pari_dispari ();
 
+ void stampa_divisori(int x);
 
 
 
@@ -145,8 +155,25 @@ int main()
                     printf("l'area del rettangolo e %d\n",ris);  //stampo a scermo il risultato
                     
                     break;
-                    
-                    
+            
+            case 4:
+                    printf("\n hai scelto pari dispari");
+                    printf("\n inserisci un numero");
+                    scanf("%d",&n1);
+
+                    ris = pari_dispari(n1);
+
+                    if(ris==0)
+                    {
+                        printf("pari");
+
+                    }
+                    if (ris==1)
+                    {
+                        printf("dispari");
+                    }
+
+                    break;                   
             default: printf("hai inserito un numero sbagliato\n");     
 			
 			                      
@@ -160,7 +187,7 @@ int main()
     return 0;
 }
 
-int menu()
+int menu(void)
 {
 	system("clear");
     int risp;
@@ -168,19 +195,46 @@ int menu()
     printf("\n digita 0 per uscire dal programma\n");
     printf("\n digita 1 per calcolare l'mcd tra due numeri interi\n");
     printf("\n digita 2 per calcolare la somma tra i divisori du un numero intero\n");
-    printf("\n digita 3 per calcolare l'area di un rettangolo con base e altezza ineri\n");  // menu del programma
+    printf("\n digita 3 per calcolare l'area di un rettangolo con base e altezza ineri\n"); 
+    printf("\n digita 4 per pari o dispari\n"); // menu del programma
     printf(" inserisci:  ");
     scanf("%d",&risp);
     return risp;
 }
 
+void scambio(int x, int y)
+{
+    int scambio;
+
+    scambio = x;
+    x = y;
+    y = scambio;
+
+ 
+}
 int mcd(int n1,int n2,int ris)
 {
-    while (n2 != 0) 
+    int resto;
+
+    if(n1<n2)
     {
-        ris = n2;
-        n2 = n1 % n2;       // funzione mcd
-        n1 = ris;
+        scambio (n1,n2);
+
+        while (n1%n2!=0)
+        {
+            resto = n1%n2;
+            n1=n2;
+            n2=resto;
+        }
+    }
+    else 
+    {
+         while (n1%n2!=0)
+        {
+            resto = n1%n2;
+            n1=n2;
+            n2=resto;
+        }
     }
     return n1;
 }
@@ -202,3 +256,16 @@ int area_rettangolo(int x,int y)
     ris=x*y;        //funzione area rettangolo
     return ris;
 }
+
+int pari_dispari (int x)
+{
+    int i;
+    for (i=x; i>1;i-=2)
+    {
+       
+    }
+    return i;
+
+}
+
+ void stampa_divisori(int x)
