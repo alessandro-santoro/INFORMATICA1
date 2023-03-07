@@ -4,6 +4,8 @@
 
 #define n 10
 
+void gira_vettore(int []);
+
 void carica_vettore(int []);
 
 void stampa_vettore(int []);
@@ -22,6 +24,15 @@ int main()
     stampa_vettore(vettore);
 
     ris = cerca_num_ris(num,vettore);
+}
+
+void gira_vettore(int v[])
+{
+
+    for(int c=0;c<n;c++)
+    {
+        
+    }
 }
 
 void carica_vettore(int v[])
@@ -46,7 +57,7 @@ void stampa_vettore(int v[])
 int cerca_num(int x, int v[])
 {
 
-    for(int c=0;c<n;c++)
+    gira_vettore(v);
     {
         if(x==x)
         {
