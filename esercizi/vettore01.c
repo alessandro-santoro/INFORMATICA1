@@ -10,9 +10,9 @@ void carica_vettore(int []);
 
 void stampa_vettore(int []);
 
-int cerca_num(int x,int []);
+void cerca_num(int x,int []);
 
-int cerca_num_ris(int x, int[]);
+void cerca_num_ris(int x, int[]);
 
 int main()
 {
@@ -23,7 +23,7 @@ int main()
 
     stampa_vettore(vettore);
 
-    ris = cerca_num_ris(num,vettore);
+    cerca_num_ris(num,vettore);
 }
 
 void gira_vettore(int v[])
@@ -54,25 +54,23 @@ void stampa_vettore(int v[])
     }
 }
 
-int cerca_num(int x, int v[])
+void cerca_num(int x, int v[])
 {
-
-    gira_vettore(v);
+    for(int c=0;c<n;c++)
     {
-        if(x==x)
+        if(x==v[c])
         {
-            printf("il numero e' %d",x);
+            printf("\nil numero e' %d",v[c]);
         }
     }
-    return x;
+
 }
 
-int cerca_num_ris(int x, int v[])
+void cerca_num_ris(int x, int v[])
 {
-    printf("inserisci il numero da trovare:  ");
+    printf("\ninserisci il numero da trovare:  ");
     scanf("%d",&x);
 
-    x = cerca_num(x,v);
+    cerca_num(x,v);
 
-    return x;
 }
