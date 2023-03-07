@@ -2,27 +2,66 @@
 #include <limits.h>
 
 
-#define num 10
+#define n 10
+
+void carica_vettore(int []);
+
+void stampa_vettore(int []);
+
+int cerca_num(int x,int []);
+
+int cerca_num_ris(int x, int[]);
 
 int main()
 {
-    int r = 0;
-    int vettore[num];
+    int vettore[n];
+    int ris,num;
 
-    for ( int i = 0 ; i < num ; i++)
-    {
-        printf(" inserisci un numero:   ");
-        scanf(" %d", &vettore[i]);
-    }
-    for ( int i = 0 ; i < num ; i++)
-    {
-        printf(" %d\n", vettore[i]);
-    }
+    carica_vettore(vettore);
 
-    for ( int i = 0 ; i < num ; i++)
-    {
-        r += vettore[i];
-    }
+    stampa_vettore(vettore);
 
-    printf(" \n somma = %d\n",r);
+    ris = cerca_num_ris(num,vettore);
+}
+
+void carica_vettore(int v[])
+{
+    printf("\ninserisci dieci numeri\n");
+    for(int c=0; c<n; c++)
+    {
+        printf("\n\t\n");
+        scanf("%d",&v[c]);
+    }
+}
+
+void stampa_vettore(int v[])
+{
+
+    for (int c=0;c<n;c++)
+    {
+        printf("%d\t",v[c]);
+    }
+}
+
+int cerca_num(int x, int v[])
+{
+
+    for(int c=0;c<n;c++)
+    {
+        if(x==x)
+        {
+            printf("il numero e' %d",x);
+        }
+    }
+    return x;
+}
+
+int cerca_num_ris(int x, int v[])
+{
+    printf("inserisci il numero da trovare:  ");
+    scanf("%d",&x);
+
+    x = cerca_num(x,v);
+
+    return x;
 }

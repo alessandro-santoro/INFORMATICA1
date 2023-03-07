@@ -10,9 +10,9 @@ void scambio(int x, int y);
 
 void carica(int[]);
 
-void caricaRand(int v[]);
+void caricaRand(int []);
 
-void stampovett(int v[]);
+void stampovett(int []);
 
 int contamultipli_vettori(int [], int x);
 
