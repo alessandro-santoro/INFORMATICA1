@@ -1,29 +1,71 @@
-/** ****************************************************************************************
-* \mainpage esA_divisiore.c
-*
-* @brief chiesti 2 numeri all'utente visualizza tutti i nuemri compresi fra i 2 e ne faccia la somma
-* 
-* @author alessanro santoro
-* @date 01/12/2022
-*/
-
 #include <stdio.h>
 
+
+
+int leggere(int y);
+
+float poligono(int x, float y);
+
 int main()
-
 {
-    int n1,n2,i,somma;
+    int r, n1;
+    float n2;
 
-    printf("inserisci due nuemri interi:   ");
-    scanf("%d%d",&n1,&n2);
+    r= leggere(5);
 
-    for( i = n1 ; i <= n2; i++)
+    printf("\ni numeri sono %d",r);
+
+    printf("\ninserisci il numero dei lati del poligono:  ");
+    scanf("%d",&n1);
+    printf("\ninserisci il valore di un lato del poligono:  ");
+    scanf("%f",&n2);
+
+    r = poligono(n1,n2);
+
+    printf("\nil perimetro del poligono e' %",r);
+}
+
+int leggere(int y)
+{
+    int num1;
+    int c=-1;
+
+
+    do
     {
-        printf("%d\t",i);
-        somma+=i;
+        printf("\ninserisci un numero:  ");
+        scanf("%d",&num1);
+
+        if (num1 % y == 0)
+        {
+            c++;
+        }
+    }while( num1!=0);
+
+    return c;
+}
+
+float poligono(int x, float y)
+{
+    int p;
+
+    if(x<=2)
+    {
+        printf("\nnon e' un poligono");
+    }
+    switch(x)
+    {
+        case 3: printf("\ne' un triangolo");
+                p = y*3;
+        break;
+
+        case 4: printf("\ne' un quadrato");
+                p = y*4;
+        break;
+
+        default: printf("\nha piu di 4 lati");
     }
 
-    printf("\nsomma =  %d\n", somma);
+    return p;
     
-    return 0;
 }
