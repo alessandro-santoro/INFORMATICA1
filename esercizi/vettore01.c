@@ -1,10 +1,8 @@
 #include <stdio.h>
+
 #include <limits.h>
 
-
 #define n 10
-
-void gira_vettore(int []);
 
 void carica_vettore(int []);
 

@@ -14,6 +14,10 @@ void caricaRand(int []);
 
 void stampovett(int []);
 
+void cerca_num(int x,int []);
+
+void cerca_num_ris(int x, int v[]);
+
 int contamultipli_vettori(int [], int x);
 
 int main()
@@ -26,6 +30,8 @@ int main()
     caricaRand(vettore);
 
     stampovett(vettore);
+
+    cerca_num_ris(num,vettore);
 
     r = contamultipli_vettori(vettore, num);
 
@@ -71,6 +77,27 @@ void stampovett(int v[])
         printf("%d\t ", v[c]);
     }
     printf("\n\n");
+}
+
+void cerca_num(int x, int v[])
+{
+    for(int c=0;c<n;c++)
+    {
+        if(x==v[c])
+        {
+            printf("\nil numero e' %d",v[c]);
+        }
+    }
+
+}
+
+void cerca_num_ris(int x, int v[])
+{
+    printf("\ninserisci il numero da trovare:  ");
+    scanf("%d",&x);
+
+    cerca_num(x,v);
+
 }
 
 int contamultipli_vettori(int v[], int x)
