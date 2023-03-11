@@ -1,15 +1,19 @@
 #include <stdio.h>
 
-
+void stampa(int x, char z);
 
 int leggere(int y);
 
 float poligono(int x, float y);
 
+int conta(char x);
+
 int main()
 {
     int r, n1;
     float n2;
+    char a='+',b='#';
+    float ris;
 
     r= leggere(5);
 
@@ -20,9 +24,15 @@ int main()
     printf("\ninserisci il valore di un lato del poligono:  ");
     scanf("%f",&n2);
 
-    r = poligono(n1,n2);
+    ris = poligono(n1,n2);
 
-    printf("\nil perimetro del poligono e' %",r);
+    printf("\nil perimetro del poligono e' %f",ris);
+
+    printf("inserisci un numero");
+    scanf("%d",&n1);
+
+    stampa(n1,'+');
+
 }
 
 int leggere(int y)
@@ -69,3 +79,13 @@ float poligono(int x, float y)
     return p;
     
 }
+
+void stampa(int n, char z)
+{
+    for(int c=0;c<=n;c++)
+    {
+        printf("%c",z);
+    }
+}
+
+ 
