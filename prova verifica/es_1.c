@@ -1,17 +1,17 @@
 #include <stdio.h>
-
-void stampa(int x, char z);
+int contaDivisori(int x);
+/*void stampa(int x, char z);
 
 int leggere(int y);
 
 float poligono(int x, float y);
 
 int conta(char x);
-
+*/
 int main()
 {
     int r, n1;
-    float n2;
+   /* float n2;
     char a='+',b='#';
     float ris;
 
@@ -32,9 +32,16 @@ int main()
     scanf("%d",&n1);
 
     stampa(n1,'+');
+    */
 
+    printf("\ninserisci il numero da dividere:   ");
+    scanf("%d",&n1);
+
+    r = contaDivisori(n1);
+
+    printf("\n il numero %d ha %d divisori\n",n1, r);
 }
-
+/*
 int leggere(int y)
 {
     int num1;
@@ -86,6 +93,20 @@ void stampa(int n, char z)
     {
         printf("%c",z);
     }
+}*/
+
+int contaDivisori(int x)
+{
+    int i, ris=0;
+
+
+    for(i = 1; i<=x; i++)
+    {
+        if(x%i==0) 
+        ris  ++; 
+    }
+
+
+    return ris;
 }
 
- 
