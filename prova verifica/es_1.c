@@ -43,7 +43,7 @@ int main()
 }
 /*
 int leggere(int y)
-{
+{  
     int num1;
     int c=-1;
 
