@@ -20,14 +20,22 @@ void cerca_num_ris(int x, int v[]);
 
 int contamultipli_vettori(int [], int x);
 
-void ribaltavett(int v[]);*/
+void ribaltavett(int v[]);
 
-void copiavett(int v1[],int v2[]);
+void copiavett(int [],int []);
+
+int somma_vettore(int []);
+
+int media_vettore(int []);*/
+
+void contaDis_Par(int []);
+
+void carica_zero(int []);
 
 int main()
 {
     int vettore[n], vettore2[n];
-    int r,num;
+    int risultato,num;
 
     
     carica(vettore);
@@ -38,15 +46,23 @@ int main()
 
     cerca_num_ris(num,vettore);
 
-    r = contamultipli_vettori(vettore, num);
+    risultato = contamultipli_vettori(vettore, num);
 
     printf("%d\n",r);
 
-    ribaltavett(vettore);*/
+    ribaltavett(vettore);
 
     copiavett(vettore,vettore2);
-    
 
+    risultato = somma_vettore(vettore);
+    
+    printf("la somma e' %d", risultato);
+
+    risultato = media_vettore(vettore);
+
+    printf("la media e' %d", risultato);*/
+
+    risultato = stampoDis_Par(vettore);
 
 }
 /*
@@ -141,7 +157,7 @@ void ribaltavett(int v[])
 
     stampovett(v);
 }
-*/
+
 void copiavett(int v1[],int v2[])
 {
     for(int c=0;c<n;c++)
@@ -150,4 +166,55 @@ void copiavett(int v1[],int v2[])
     }
 
     stampovett(v2);
+}
+
+int somma_vettore(int v[])
+{
+    int r=0;
+    
+    for (int c = 0; c < n; c++)
+    {
+        r = r + v[c];
+    }
+
+    return r;
+}
+
+int media_vettore(int v[])
+{
+    int r=0;
+
+    r = somma_vettore(v);
+
+    r = r/n;
+
+    return r;
+}*/
+
+void contaDis_Par(int v[])
+{
+    int i,j;
+
+    for(int c=0;c<n;++)
+    {
+        if(v[c]%2==0)
+        {
+            i++;
+        }
+
+        else
+        {
+            j++;
+        }
+    }
+    printf("\ni numeri pari sono %d e quelli dispari sono %d",i,j);
+}
+
+
+void carica_zero(int v[])
+{
+    for(int c = 0; c < n; c++)
+    {
+        v[c]=0;
+    }
 }
