@@ -5,18 +5,18 @@
 #include <stdlib.h>
 
 #define n 10
-/*
-void scambio(int x, int y);
-*/
-void carica(int[]);
-/*
-void caricaRand(int []);
-*/
-void stampovett(int []);
-/*
-void cerca_num(int x,int []);
 
-void cerca_num_ris(int x, int v[]);
+int menu (void);
+
+void scambio(int x, int y);
+
+void carica(int[]);
+
+void caricaRand(int []);
+
+void stampovett(int []);
+
+void cerca_num(int x,int []);
 
 int contamultipli_vettori(int [], int x);
 
@@ -26,7 +26,7 @@ void copiavett(int [],int []);
 
 int somma_vettore(int []);
 
-int media_vettore(int []);*/
+int media_vettore(int []);
 
 void contaDis_Par(int []);
 
@@ -37,35 +37,110 @@ int main()
     int vettore[n], vettore2[n];
     int risultato,num;
 
+    risultato = menu();
+
+    switch (risultato)
+    {
+        case 0 : printf("\n sei uscito dal programma");
+        break;
+
+        case 1 : printf ("\n hai scelto carica il vettore");
+                
+                 printf("\n insrisci 10 numeri");
+
+                 carica( vettore );
+        break;
+
+        case 2 : printf ("\n hai scelto carica random il vettore");
+                
+                 caricaRand( vettore );
+        break;
+
+        case 3 : printf ("\n hai scelto stampa il vettore");
+
+                 stampovett(vettore);
+        break;
+
+        case 4 : printf ("\n hai scelto cerca numero nel il vettore");
+                 
+                 printf("\ninserisci il numero da trovare:  ");
+                 scanf("%d",& num);
+
+                 cerca_num(num , vettore);
+        break;
+
+        case 5 : printf ("\n hai scelto conta multipli del vettore");
+
+                 risultato = contamultipli_vettori( vettore, num );
+        break;
+
+        case 6 : printf("\n hai scelyto ribalta vettore");
+
+                 ribaltavett(vettore);
+        break;
+
+        case 7 : printf ("\n hai scelto copia vettore in un'altro ");
     
-    carica(vettore);
-/*
-    caricaRand(vettore);
+                 copiavett(vettore,vettore2);
+        break;
 
-    stampovett(vettore);
+        case 8 : printf("\n hai scelto somma del vettore");
 
-    cerca_num_ris(num,vettore);
+                risultato = somma_vettore(vettore);
 
-    risultato = contamultipli_vettori(vettore, num);
+                printf("\nla somma e' %d", risultato);
+        break;
 
-    printf("%d\n",r);
+        case 9 : printf ("\n hai scelto media del vettore");
 
-    ribaltavett(vettore);
+                 risultato = media_vettore(vettore);
 
-    copiavett(vettore,vettore2);
+                 printf("\nla media e' %d", risultato); 
+        break;
 
-    risultato = somma_vettore(vettore);
-    
-    printf("la somma e' %d", risultato);
+        case 10 : printf("\n hai scelto conta i numeri pari e dispari del vettore");
 
-    risultato = media_vettore(vettore);
+                  contaDis_Par(vettore);
+        break;
 
-    printf("la media e' %d", risultato);*/
+        case 11 : printf("\n hai scelto carica di zeri il vettore");
 
-    risultato = stampoDis_Par(vettore);
+                  carica_zero(vettore);
 
+        break;
+
+        default : printf(" hai sbagliato numero");             
+
+    }
+    getchar();
+    getchar();
 }
-/*
+
+int menu (void)
+{
+    system("clear");
+
+    int r;
+
+    printf("\n 1 carica vettore");
+    printf("\n 2 carica random");
+    printf("\n 3 stampa vettore");
+    printf("\n 4 cerca numero nel vettore");
+    printf("\n 5 conta i multipli del vettore");
+    printf("\n 6 ribalta il vettore");
+    printf("\n 7 copia il vettore in un'altro");
+    printf("\n 8 somma del vettore");
+    printf("\n 9 media del vettore");
+    printf("\n 10 conta i numeri pari e dispari del vettore");
+    printf("\n 11 carica di zeri il vettore");
+    printf("\n 0 ESCI");
+
+    printf("\n\n inserisci il numero:  ");
+
+    scanf("%d",& r);
+
+    return r;
+}
 
 void scambio(int x, int y)
 {
@@ -76,7 +151,7 @@ void scambio(int x, int y)
     y = scambio;
 
 }
-*/
+
 void carica(int v[ ])
 {
     int c;
@@ -89,7 +164,7 @@ void carica(int v[ ])
 
     stampovett(v);
 }
-/*
+
 void caricaRand(int v[])
 {
     srand(time(NULL));
@@ -100,7 +175,7 @@ void caricaRand(int v[])
 
     stampovett(v);
 }
-*/
+
 void stampovett(int v[])
 {
     for(int c = 0; c<n; c++)
@@ -109,7 +184,7 @@ void stampovett(int v[])
     }
     printf("\n\n");
 }
-/*
+
 void cerca_num(int x, int v[])
 {
     for(int c=0;c<n;c++)
@@ -119,15 +194,6 @@ void cerca_num(int x, int v[])
             printf("\nil numero e' %d",v[c]);
         }
     }
-
-}
-
-void cerca_num_ris(int x, int v[])
-{
-    printf("\ninserisci il numero da trovare:  ");
-    scanf("%d",&x);
-
-    cerca_num(x,v);
 
 }
 
@@ -189,13 +255,13 @@ int media_vettore(int v[])
     r = r/n;
 
     return r;
-}*/
+}
 
 void contaDis_Par(int v[])
 {
     int i,j;
 
-    for(int c=0;c<n;++)
+    for(int c=0;c<n;c++)
     {
         if(v[c]%2==0)
         {
@@ -213,8 +279,12 @@ void contaDis_Par(int v[])
 
 void carica_zero(int v[])
 {
-    for(int c = 0; c < n; c++)
+    int c ; 
+
+    for( c = 0; c < n; c++)
     {
         v[c]=0;
     }
+
+    stampovett(v);
 }
