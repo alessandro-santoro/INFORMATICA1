@@ -20,7 +20,7 @@ void cerca_num(int x,int []);
 
 int contamultipli_vettori(int [], int x);
 
-void ribaltavett(int v[]);
+void ribaltavett(int []);
 
 void copiavett(int [],int []);
 
