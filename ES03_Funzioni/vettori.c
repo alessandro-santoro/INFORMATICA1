@@ -32,6 +32,10 @@ void contaDis_Par(int []);
 
 void carica_zero(int []);
 
+int numPrimo(int x);
+
+int contaPrimivett(int []);
+
 int main()
 {
     int vettore[n], vettore2[n];
@@ -109,35 +113,53 @@ int main()
 
         break;
 
+        case 12 : printf("\n hai scelto numero primo di un vettore");
+
+                  risultato = contaPrimivett(vettore);
+
+                  printf("\ni numeri primi sono %d", risultato);
+                  printf("\n");
+                  stampovett(vettore);
+
+
         default : printf(" hai sbagliato numero");             
 
     }
+
+    printf("\n\n permi invio per continuare:  ");
     getchar();
     getchar();
+    system("clear");
 }
 
 int menu (void)
 {
-    system("clear");
 
     int r;
 
-    printf("\n 1 carica vettore");
-    printf("\n 2 carica random");
-    printf("\n 3 stampa vettore");
-    printf("\n 4 cerca numero nel vettore");
-    printf("\n 5 conta i multipli del vettore");
-    printf("\n 6 ribalta il vettore");
-    printf("\n 7 copia il vettore in un'altro");
-    printf("\n 8 somma del vettore");
-    printf("\n 9 media del vettore");
-    printf("\n 10 conta i numeri pari e dispari del vettore");
-    printf("\n 11 carica di zeri il vettore");
-    printf("\n 0 ESCI");
+    printf("\n                   programma alessandro santoro\n\n");
 
+    printf("\n***************************************************************");
+    printf("\n 1 carica vettore                                             *");
+    printf("\n 2 carica random                                              *");
+    printf("\n 3 stampa vettore                                             *");
+    printf("\n 4 cerca numero nel vettore                                   *");
+    printf("\n 5 conta i multipli del vettore                               *");
+    printf("\n 6 ribalta il vettore                                         *");
+    printf("\n 7 copia il vettore in un'altro                               *");
+    printf("\n 8 somma del vettore                                          *");
+    printf("\n 9 media del vettore                                          *");
+    printf("\n 10 conta i numeri pari e dispari del vettore                 *");
+    printf("\n 11 carica di zeri il vettore                                 *");
+    printf("\n 12 per sapere quanti numeri primi ci sono nel vettore        *");
+    printf("\n                                                              *");
+    printf("\n 0 ESCI                                                       *");
+    printf("\n***************************************************************");
     printf("\n\n inserisci il numero:  ");
 
     scanf("%d",& r);
+
+    printf("\n\n");
 
     return r;
 }
@@ -158,7 +180,7 @@ void carica(int v[ ])
 
     for(c = 0; c<n; c++)
     {
-        printf("\ninserisci un nuemro\n");
+        printf("\ninserisci il %d° nuemro\n",c+1);
         scanf("%d",& v[c]);
     }
 
@@ -178,6 +200,7 @@ void caricaRand(int v[])
 
 void stampovett(int v[])
 {
+    printf("\n\n");
     for(int c = 0; c<n; c++)
     {
         printf("%d\t ", v[c]);
@@ -287,4 +310,32 @@ void carica_zero(int v[])
     }
 
     stampovett(v);
+}
+
+int numPrimo(int x)
+{
+    int i=0;
+    for(int c = 2; c<=x/2; c++)
+    {
+        if(x%c==0) i++;
+
+    }
+    return  i;
+}
+
+int contaPrimivett( int v[])
+{
+    int r, i;
+
+    for ( int c = 0; c < n; c++)
+    {
+        r = numPrimo(v[c]);
+
+        if ( r == 0)
+        {
+            i++;
+        }
+    }
+
+    return i;
 }
