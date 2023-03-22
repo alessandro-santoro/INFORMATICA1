@@ -36,100 +36,126 @@ int numPrimo(int x);
 
 int contaPrimivett(int []);
 
+void bubble_sort(int []);
+
 int main()
 {
     int vettore[n], vettore2[n];
     int risultato,num;
+    int f = 1;
 
-    risultato = menu();
-
-    switch (risultato)
-    {
-        case 0 : printf("\n sei uscito dal programma");
-        break;
-
-        case 1 : printf ("\n hai scelto carica il vettore");
-                
-                 printf("\n insrisci 10 numeri");
-
-                 carica( vettore );
-        break;
-
-        case 2 : printf ("\n hai scelto carica random il vettore");
-                
-                 caricaRand( vettore );
-        break;
-
-        case 3 : printf ("\n hai scelto stampa il vettore");
-
-                 stampovett(vettore);
-        break;
-
-        case 4 : printf ("\n hai scelto cerca numero nel il vettore");
-                 
-                 printf("\ninserisci il numero da trovare:  ");
-                 scanf("%d",& num);
-
-                 cerca_num(num , vettore);
-        break;
-
-        case 5 : printf ("\n hai scelto conta multipli del vettore");
-
-                 risultato = contamultipli_vettori( vettore, num );
-        break;
-
-        case 6 : printf("\n hai scelyto ribalta vettore");
-
-                 ribaltavett(vettore);
-        break;
-
-        case 7 : printf ("\n hai scelto copia vettore in un'altro ");
     
-                 copiavett(vettore,vettore2);
-        break;
+    while( f )
+    {
 
-        case 8 : printf("\n hai scelto somma del vettore");
+        risultato = menu();
 
-                risultato = somma_vettore(vettore);
 
-                printf("\nla somma e' %d", risultato);
-        break;
+        switch (risultato)
+        {
+            case 0 : printf("\n sei uscito dal programma");
 
-        case 9 : printf ("\n hai scelto media del vettore");
+                     f = 0;
+            break;
 
-                 risultato = media_vettore(vettore);
+            case 1 : printf ("\n hai scelto carica il vettore");
 
-                 printf("\nla media e' %d", risultato); 
-        break;
+                     printf("\n insrisci 10 numeri");
 
-        case 10 : printf("\n hai scelto conta i numeri pari e dispari del vettore");
+                     carica( vettore );
+            break;
 
-                  contaDis_Par(vettore);
-        break;
+            case 2 : printf ("\n hai scelto carica random il vettore");
+                
+                     caricaRand( vettore );
+            break;
 
-        case 11 : printf("\n hai scelto carica di zeri il vettore");
+            case 3 : printf ("\n hai scelto stampa il vettore");
 
-                  carica_zero(vettore);
+                     stampovett(vettore);
+            break;
 
-        break;
+            case 4 : printf ("\n hai scelto cerca numero nel il vettore");
+                 
+                     printf("\ninserisci il numero da trovare:  ");
+                     scanf("%d",& num);
 
-        case 12 : printf("\n hai scelto numero primo di un vettore");
+                     cerca_num(num , vettore);
+            break; 
 
-                  risultato = contaPrimivett(vettore);
+            case 5 : printf ("\n hai scelto conta multipli del vettore");
 
-                  printf("\ni numeri primi sono %d", risultato);
-                  printf("\n");
-                  stampovett(vettore);
+                     risultato = contamultipli_vettori( vettore, num );
+            break;
+
+            case 6 : printf("\n hai scelyto ribalta vettore");
+
+                     ribaltavett(vettore);
+            break;
+
+            case 7 : printf ("\n hai scelto copia vettore in un'altro ");
+    
+                     copiavett(vettore,vettore2);
+            break;
+
+            case 8 : printf("\n hai scelto somma del vettore");
+
+                    risultato = somma_vettore(vettore);
+
+                    printf("\nla somma e' %d", risultato);
+            break;
+
+            case 9 : printf ("\n hai scelto media del vettore");
+
+                     risultato = media_vettore(vettore);
+
+                     printf("\nla media e' %d", risultato); 
+            break;
+
+            case 10 :printf("\n hai scelto conta i numeri pari e dispari del vettore");
+
+                     contaDis_Par(vettore);
+            break;
+
+            case 11 : printf("\n hai scelto carica di zeri il vettore");
+
+                     carica_zero(vettore);
+
+            break;
+
+            case 12 : printf("\n hai scelto numero primo di un vettore");
+
+                     risultato = contaPrimivett(vettore);
+
+                     printf("\ni numeri primi sono %d", risultato);
+                     printf("\n");
+                     stampovett(vettore);
+            break;
+
+            case 13 : printf("\n hai scelto bubble sort");
+
+                      printf("\n vettore all'inizio:  ");
+
+                      stampovett(vettore);
+
+                      bubble_sort(vettore);
+
+                      printf("\n\n vettore dopo aver usato bubble sort:  ");
+
+                      stampovett(vettore);
+
 
 
         default : printf(" hai sbagliato numero");             
 
-    }
+        }
 
     printf("\n\n permi invio per continuare:  ");
     getchar();
     getchar();
     system("clear");
+    }
+
 }
 
 int menu (void)
@@ -152,6 +178,7 @@ int menu (void)
     printf("\n 10 conta i numeri pari e dispari del vettore                 *");
     printf("\n 11 carica di zeri il vettore                                 *");
     printf("\n 12 per sapere quanti numeri primi ci sono nel vettore        *");
+    printf("\n 13 per usare bubble sort                                     *");
     printf("\n                                                              *");
     printf("\n 0 ESCI                                                       *");
     printf("\n***************************************************************");
@@ -180,11 +207,11 @@ void carica(int v[ ])
 
     for(c = 0; c<n; c++)
     {
-        printf("\ninserisci il %d° nuemro\n",c+1);
+        printf("\ninserisci il %d° nuemro:   ",c+1);
         scanf("%d",& v[c]);
     }
 
-    stampovett(v);
+    stampovett(v);  
 }
 
 void caricaRand(int v[])
@@ -323,7 +350,7 @@ int numPrimo(int x)
     return  i;
 }
 
-int contaPrimivett( int v[])
+int contaPrimivett(int v[])
 {
     int r, i;
 
@@ -338,4 +365,29 @@ int contaPrimivett( int v[])
     }
 
     return i;
+}
+
+void bubble_sort(int v[])
+{
+    int fine = n-1;
+    int scambio = 0;
+    int a, i;
+
+    do
+    {
+        scambio = 0;
+        for(int c = 0; c<fine; c++)
+        {
+            if(v[c]>v[c+1])
+            {
+                scambio=1;
+                a=v[c];
+                v[c] = v[c+1];
+                v[c+1] = a;
+                
+                i=c;
+            }
+        }
+        fine = i;
+    } while(scambio);
 }
