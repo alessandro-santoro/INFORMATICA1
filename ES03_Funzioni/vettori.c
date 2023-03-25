@@ -36,6 +36,8 @@ int numPrimo(int x);
 
 int contaPrimivett(int []);
 
+int ricercaSentinella( int x, int []);
+
 void bubble_sort(int []);
 
 int main()
@@ -132,7 +134,17 @@ int main()
                      stampovett(vettore);
             break;
 
-            case 13 : printf("\n hai scelto bubble sort");
+            case 13 : printf("\n hai scelto ricerca con sentinella");
+
+                      printf("\n inserisci il numero da cercare:  ");
+                      scanf("%d", & num);
+
+                      risultato = ricercaSentinella( num , vettore);
+
+                      printf("\n il numero che hai inserito e' nella %d° posizione", risultato);
+            break;
+
+            case 14 : printf("\n hai scelto bubble sort");
 
                       printf("\n vettore all'inizio:  ");
 
@@ -143,7 +155,7 @@ int main()
                       printf("\n\n vettore dopo aver usato bubble sort:  ");
 
                       stampovett(vettore);
-
+            break;
 
 
         default : printf(" hai sbagliato numero");             
@@ -178,7 +190,8 @@ int menu (void)
     printf("\n 10 conta i numeri pari e dispari del vettore                 *");
     printf("\n 11 carica di zeri il vettore                                 *");
     printf("\n 12 per sapere quanti numeri primi ci sono nel vettore        *");
-    printf("\n 13 per usare bubble sort                                     *");
+    printf("\n 13 per scegliere ricerca con sentinella                      *");
+    printf("\n 14 per usare bubble sort                                     *");
     printf("\n                                                              *");
     printf("\n 0 ESCI                                                       *");
     printf("\n***************************************************************");
@@ -365,6 +378,25 @@ int contaPrimivett(int v[])
     }
 
     return i;
+}
+
+int ricercaSentinella(int x, int v[])
+{
+    v[n] = x;
+
+    int c=1;
+
+    stampovett(v);
+
+    while(v[c]!=x)
+    {
+        c++;
+    }
+    if(c<n)
+
+        return c;
+
+    return -1;
 }
 
 void bubble_sort(int v[])
