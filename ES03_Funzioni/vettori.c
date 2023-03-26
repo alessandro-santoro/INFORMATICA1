@@ -544,19 +544,19 @@ void pariDispari(int v[], int v2[])
 
     }
 
-    for(int c = 0, s = 0, d=n-1; c<n; c++)
+    for(int c = 0, sin = 0, des=n-1; c<n; c++)
     {
 
         if(v[c]%2==1)
         {
-            v2[s] = v[c];
-            s++;
+            v2[sin] = v[c];
+            sin++;
         }
            
         else
         {
-             v2[d] = v[c];
-             d--;
+             v2[des] = v[c];
+             des--;
         } 
     }
 }
