@@ -40,13 +40,23 @@ int ricercaSentinella( int x, int []);
 
 void bubble_sort(int []);
 
+void MaxMinVettore(int *min, int *max, int []);
+
+void copiaDispari(int [], int []);
+
+void copiaPari(int [], int []);
+
+void pariDispari(int [], int []);
+
 int main()
 {
     int vettore[n], vettore2[n];
-    int risultato,num;
+    int risultato,num,max,min;
     int f = 1;
 
-    
+    carica_zero(vettore);
+    carica_zero(vettore2);
+
     while( f )
     {
 
@@ -55,29 +65,29 @@ int main()
 
         switch (risultato)
         {
-            case 0 : printf("\n sei uscito dal programma");
+            case 0 : printf("\n\n SEI USCITO DAL PROGRAMMA");
 
                      f = 0;
             break;
 
-            case 1 : printf ("\n hai scelto carica il vettore");
+            case 1 : printf ("\n\n HAI SCELTO CARICA IL VETTORE");
 
-                     printf("\n insrisci 10 numeri");
+                     printf("\n\n insrisci 10 numeri");
 
                      carica( vettore );
             break;
 
-            case 2 : printf ("\n hai scelto carica random il vettore");
+            case 2 : printf ("\n\n HAI SCELTO CARICA RANDOM IL VETTORE");
                 
                      caricaRand( vettore );
             break;
 
-            case 3 : printf ("\n hai scelto stampa il vettore");
+            case 3 : printf ("\n\n HAI SCELTO STAMPA IL VETTORE");
 
                      stampovett(vettore);
             break;
 
-            case 4 : printf ("\n hai scelto cerca numero nel il vettore");
+            case 4 : printf ("\n\n HAI SCELTO CERCA NUMERO NEL VETTORE");
                  
                      printf("\ninserisci il numero da trovare:  ");
                      scanf("%d",& num);
@@ -85,47 +95,47 @@ int main()
                      cerca_num(num , vettore);
             break; 
 
-            case 5 : printf ("\n hai scelto conta multipli del vettore");
+            case 5 : printf ("\n\n HAI SCELTO CONTA MULTIPLI VETTORE");
 
                      risultato = contamultipli_vettori( vettore, num );
             break;
 
-            case 6 : printf("\n hai scelyto ribalta vettore");
+            case 6 : printf("\n\n HAI SCELTO RIBALTA VETTORE");
 
                      ribaltavett(vettore);
             break;
 
-            case 7 : printf ("\n hai scelto copia vettore in un'altro ");
+            case 7 : printf ("\n\n HAI SCELTO COPIA VETTORE IN UN'ALTRO ");
     
                      copiavett(vettore,vettore2);
             break;
 
-            case 8 : printf("\n hai scelto somma del vettore");
+            case 8 : printf("\n\n HAI SCELTO SOMMA DEL VETTORE");
 
                     risultato = somma_vettore(vettore);
 
                     printf("\nla somma e' %d", risultato);
             break;
 
-            case 9 : printf ("\n hai scelto media del vettore");
+            case 9 : printf ("\n\n HAI SCELTO MEDIA DEL VETTORE");
 
                      risultato = media_vettore(vettore);
 
                      printf("\nla media e' %d", risultato); 
             break;
 
-            case 10 :printf("\n hai scelto conta i numeri pari e dispari del vettore");
+            case 10 :printf("\n\n HAI SCELTO CONTA PARI E DISPARI DEL VETTORE");
 
                      contaDis_Par(vettore);
             break;
 
-            case 11 : printf("\n hai scelto carica di zeri il vettore");
+            case 11 : printf("\n\n HAI SCELTO CARICA DI ZERI IL VETTORE");
 
                      carica_zero(vettore);
 
             break;
 
-            case 12 : printf("\n hai scelto numero primo di un vettore");
+            case 12 : printf("\n\n HAI SCELTO NUMERI PRIMI DEL VETTORE");
 
                      risultato = contaPrimivett(vettore);
 
@@ -134,17 +144,17 @@ int main()
                      stampovett(vettore);
             break;
 
-            case 13 : printf("\n hai scelto ricerca con sentinella");
+            case 13 : printf("\n\n HAI SCELTO RICERCA A SENTINELLA");
 
                       printf("\n inserisci il numero da cercare:  ");
                       scanf("%d", & num);
 
                       risultato = ricercaSentinella( num , vettore);
 
-                      printf("\n il numero che hai inserito e' nella %d° posizione", risultato);
+                      printf("\n il numero che hai inserito (%d) e' nella %d° posizione del vettore",num, risultato);
             break;
 
-            case 14 : printf("\n hai scelto bubble sort");
+            case 14 : printf("\n\n HAI SCELTO BUBBLE SORT");
 
                       printf("\n vettore all'inizio:  ");
 
@@ -157,6 +167,45 @@ int main()
                       stampovett(vettore);
             break;
 
+            case 15 : printf("\n\n HAI SCELTO MASSIMO E MINIMO DEL VETTORE");
+
+                      MaxMinVettore(&min, &max, vettore);  
+
+                      stampovett(vettore);  
+
+                      printf("\n\n minimo del vettore:   %d", min);
+
+                      printf("\n\n massimo del vettore:   %d", max);
+            break;
+
+            case 16 : printf("\n\n HAI SCELTO COPIA DISPARI\n\n");
+
+                      copiaDispari(vettore,vettore2);
+                      
+                      printf("\n vettore con tutti i numeri:\n");
+                      stampovett(vettore);
+
+                      printf("\n\nvettore con numeri dispari:\n");
+                      stampovett(vettore2);
+            break;
+
+            case 17 : printf("\n\n COPIA NUMERI PARI DEL VETTORE");
+
+                      copiaPari(vettore,vettore2);
+
+                      printf("\n vettore con tutti i numeri:\n");
+                      stampovett(vettore);
+
+                      printf("\n\n vettore con i numeri pari:\n");
+                      stampovett(vettore2);
+            break;
+            
+            case 18 : printf("\n\n HAI SCELTO DI ORDINARE IL VETTORE CON I PARI A SINISTRA E I DISPARI A DESTRA");
+                      
+                      pariDispari(vettore,vettore2);
+
+                      printf("\n\n vettore dopo:\n");
+                      stampovett(vettore2);
 
         default : printf(" hai sbagliato numero");             
 
@@ -192,6 +241,10 @@ int menu (void)
     printf("\n 12 per sapere quanti numeri primi ci sono nel vettore        *");
     printf("\n 13 per scegliere ricerca con sentinella                      *");
     printf("\n 14 per usare bubble sort                                     *");
+    printf("\n 15 per trovare il massimo e il minimo del vettore            *");
+    printf("\n 16 per copiare i nuermi dispari in un'altro vettore          *");
+    printf("\n 17 per copiare i numeri pari in un'altro vettore             *");
+    printf("\n 18 per carica pari a sinistra e i dispari a destra           *");
     printf("\n                                                              *");
     printf("\n 0 ESCI                                                       *");
     printf("\n***************************************************************");
@@ -393,10 +446,14 @@ int ricercaSentinella(int x, int v[])
         c++;
     }
     if(c<n)
-
+    {
         return c;
+    }
+    else 
+    {
+        return -1;
+    }
 
-    return -1;
 }
 
 void bubble_sort(int v[])
@@ -422,4 +479,84 @@ void bubble_sort(int v[])
         }
         fine = i;
     } while(scambio);
+}
+
+void MaxMinVettore(int *min, int *max, int v[])
+{
+    *min = v[0];
+    *max = v[0];
+
+    for(int c = 0; c<n; c++)
+    {
+        if(*min > v[c]) *min = v[c];
+        if(*max<v[c]) *max = v[c];
+    }
+}
+
+void copiaDispari(int v[], int v2[])
+{
+    int c,i=0;
+
+    for( c = 0; c < n; c++)
+    {
+        if (v[c]%2==1)
+        {
+            v2[i] = v[c];
+            i++;
+        }
+    }
+}
+
+void copiaPari( int v[], int v2[])
+{
+    int c,i=0;
+
+    for(c = 0; c < n; c++)
+    {
+        if (v[c]%2==0)
+        {
+            v2[i] = v[c];
+            i++;
+        }
+    }
+}
+
+void pariDispari(int v[], int v2[])
+{
+    int r,i=0;
+    int x;
+
+    printf("\n\n inserisci 1 per caricare il vettore manualmente e 0 per caricarlo randomicamente:  ");
+    scanf("%d",&x);
+
+    switch(x)
+    {
+        case 0 : printf("\n\n sto caricando il vettore...");
+                 
+                 caricaRand(v);
+        break;
+
+        case 1 : printf("\n\nhai scelto di caricare il vettore manualmente");
+                 carica(v);
+        break;
+
+        default: printf("\n\n hai sbagliato numero");
+
+    }
+
+    for(int c = 0, s = 0, d=n-1; c<n; c++)
+    {
+
+        if(v[c]%2==1)
+        {
+            v2[s] = v[c];
+            s++;
+        }
+           
+        else
+        {
+             v2[d] = v[c];
+             d--;
+        } 
+    }
 }
