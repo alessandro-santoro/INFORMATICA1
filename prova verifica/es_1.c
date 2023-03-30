@@ -1,112 +1,135 @@
 #include <stdio.h>
-int contaDivisori(int x);
-/*void stampa(int x, char z);
+#include <stdlib.h>
 
-int leggere(int y);
+#define n 10
 
-float poligono(int x, float y);
+void stampa(int []);
 
-int conta(char x);
-*/
+void caricaa(int []);
+
+//void carica(int [], int x);
+
+//void nuovoInserisci(int [], int x);
+
+int conta(int [], int x);
+
+void inserire(int v[], int v2[]);
+
 int main()
 {
-    int r, n1;
-   /* float n2;
-    char a='+',b='#';
-    float ris;
+    int vettore1[n], vettore2[n], num, ris ;
 
-    r= leggere(5);
-
-    printf("\ni numeri sono %d",r);
-
-    printf("\ninserisci il numero dei lati del poligono:  ");
-    scanf("%d",&n1);
-    printf("\ninserisci il valore di un lato del poligono:  ");
-    scanf("%f",&n2);
-
-    ris = poligono(n1,n2);
-
-    printf("\nil perimetro del poligono e' %f",ris);
-
-    printf("inserisci un numero");
-    scanf("%d",&n1);
-
-    stampa(n1,'+');
-    */
-
-    printf("\ninserisci il numero da dividere:   ");
-    scanf("%d",&n1);
-
-    r = contaDivisori(n1);
-
-    printf("\n il numero %d ha %d divisori\n",n1, r);
-}
-/*
-int leggere(int y)
-{     
-    int num1;
-    int c=-1;
-
-
-    do
-    {
-        printf("\ninserisci un numero:  ");
-        scanf("%d",&num1);
-
-        if (num1 % y == 0)
-        {
-            c++;
-        }
-    }while( num1!=0);
-
-    return c;
-}
-
-float poligono(int x, float y)
-{
-    int p;
-
-    if(x<=2)
-    {
-        printf("\nnon e' un poligono");
-    }
-    switch(x)
-    {
-        case 3: printf("\ne' un triangolo");
-                p = y*3;
-        break;
-
-        case 4: printf("\ne' un quadrato");
-                p = y*4;
-        break;
-
-        default: printf("\nha piu di 4 lati");
-    }
-
-    return p;
+   /* printf("inserisci un numero:  ");
+    scanf("%d",&num);
     
+    if(num%2==1)
+    {
+        num++;
+    }
+
+    carica(vettore1,num);
+
+    printf("inserisci un numero:  ");
+    scanf("%d",&num);
+
+    nuovoInserisci(vettore1,num);
+    caricaa(vettore1);
+    printf("inserisci un numero:  ");
+    scanf("%d",&num);
+
+    ris=conta(vettore1,num);
+    printf("%d",ris);*/
+    caricaa(vettore1);
+    inserire(vettore1,vettore2);
+    
+
+}
+void caricaa(int v[])
+{
+    int c;
+    for(c =0;c<n;c++)
+    {
+        printf("inserisci un numero");
+        scanf("%d",&v[c]);
+    }
+
+
 }
 
-void stampa(int n, char z)
+void stampa(int v[])
 {
-    for(int c=0;c<=n;c++)
+    for(int c = 0; c<n;c++)
     {
-        printf("%c",z);
+        
+        printf("%d\t",v[c]);
     }
+    printf("\n\n");
+}
+
+/*void carica(int v[], int x)
+{
+    int j,c;
+    v[j]=x;
+    for( c = 0 ; c< n ; c++)
+    {
+        printf("%d\t",v[j]);
+        v[j]+=2;
+
+    }
+    printf("\n\n");
+}
+
+void nuovoInserisci(int v[],int x)
+{
+    int c,j=1,i=0;
+    v[i]=x;
+    for( c = 0; c < n; c++)
+    {
+
+        v[i]=v[i]*j;
+        printf("%d\t", v[i]);
+        j++;
+    }
+}
+
+int conta(int v[], int x)
+{
+
+    int i=0;
+
+    for(int c = 0; c<n; c++)
+    {
+        if(v[c]>x)
+        {
+            i++;
+        }
+    }
+    return i;
 }*/
 
-int contaDivisori(int x)
+void inserire(int v[], int v2[])
 {
-    int i, ris=0;
+    int c,j,x;
+    printf("vettore allinizio\n");
+    stampa(v);
 
-
-    for(i = 1; i<=x; i++)
+    for(c=0,j=n-1;c<=n/2;c++,j--)
     {
-        if(x%i==0) 
-        ris  ++; 
+        x=v[c];
+        v[c]=v[j];
+        v[j]=x;
+  
     }
-
-
-    return ris;
+    printf("vettore dopo scambio\n");
+    stampa(v);
+    for(c=0;c<n;c++)
+    {
+        v2[c]=v[c];
+        v2[c]=v2[c]*2;
+    }
+    printf("vettore alla fine\n");
+    
+    
+   
+    stampa(v2);
 }
-
