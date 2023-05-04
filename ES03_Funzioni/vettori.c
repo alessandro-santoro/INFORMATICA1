@@ -207,7 +207,7 @@ int main()
                       printf("\n\n vettore dopo:\n");
                       stampovett(vettore2);
 
-        default : printf(" hai sbagliato numero");             
+                
 
         }
 
