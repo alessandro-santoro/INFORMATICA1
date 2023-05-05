@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define C 4
-#define R 3
+#define C 5
+#define R 5
 
 int menu(void);
 
@@ -14,6 +14,8 @@ void stampaMatrice(int [][C]);
 void caricaZero(int m[][C]);
 
 void caricaMatrice(int m[][C]);
+
+void stampaDiagonale(int m[][R]);
 
 
 int main()
@@ -66,6 +68,11 @@ int main()
                         stampaMatrice(matrice);
                 break;
 
+                case 5: 
+                        printf("\n HAI SCELTO STAMPA DIAGONALE\n");
+
+                        stampaDiagonale(matrice);
+
                 default : printf(" hai sbagliato numero");     
 
 
@@ -90,6 +97,7 @@ int menu(void)
     printf("\n digita -2- per stampare la matrice\n");
     printf("\n digita -3- per caricare a zero la matrice\n");
     printf("\n digita -4- per caricare manualmente la matrice\n");
+    printf("\n digita -5- per stampare la diagonale\n");
 
 
     scanf("%d",&risp);
@@ -144,6 +152,19 @@ void caricaMatrice(int m[][C])
         {
             printf("\t %d° colonna ",j);
             scanf("%d",& m[i][j]);
+        }
+    }
+}
+
+void stampaDiagonale(int m[][C])
+{
+    for(int i=0;i<R;i++)
+    {
+        printf("%d\n",m[i][i]);
+
+        for(int j=0;j<C;j++)
+        {
+            printf("\t");
         }
     }
 }
