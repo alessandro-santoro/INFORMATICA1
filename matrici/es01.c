@@ -135,22 +135,14 @@ void caricaZero(int m[][C])
 
 void caricaMatrice(int m[][C])
 {
-    int rig=0,col=0;
-
-    for(int j=0;j<C;j++)
-    {
-        printf("\t %d° colonna",col);
-        col++;
-    }
-
     for(int i=0;i<R;i++)
     {
-        printf("\n%d° riga",rig);
-        rig++;
+        printf("\n%d° riga ",i);
+        
 
         for(int j=0;j<C;j++)
         {
-            printf("\t\t");
+            printf("\t %d° colonna ",j);
             scanf("%d",& m[i][j]);
         }
     }
