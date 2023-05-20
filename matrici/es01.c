@@ -17,6 +17,15 @@ void caricaMatrice(int m[][C]);
 
 void stampaDiagonale(int m[][R]);
 
+int cerca_num(int x,int m[][C]);
+
+int numeri_uguali(int x,int m[][C]);
+
+int cerca_num_perRiga(int m[][C]);
+
+int ricercaSentinellaMat(int x,int m[][C])
+
+
 
 int main()
 {
@@ -24,6 +33,7 @@ int main()
 
     int matrice[R][C];
     int r;
+    int n;
     int k;
 
     caricaZero(matrice);
@@ -71,7 +81,56 @@ int main()
                 case 5: 
                         printf("\n HAI SCELTO STAMPA DIAGONALE\n");
 
+                        stampaMatrice(matrice);
+
                         stampaDiagonale(matrice);
+                break;
+
+                case 6:
+                        printf("\n HAI SCELTO CERCA NUMERO NELLA MATRICE \n");
+
+                        printf("\n inserisci il numero da cercare:  ");
+                        scanf("%d", &n);
+
+                        stampaMatrice(matrice);
+
+                        r=cerca_num(n,matrice);
+                        
+                        printf("\nil numero e' %d", r);
+                break;
+                
+                case 7:
+                        printf("\n HAI SCELTO NUMERI UGUALI\n");
+
+                        printf("\n inserisci il numero da cercare:  ");
+                        scanf("%d", &n);
+
+                        stampaMatrice(matrice);
+
+                        r=numeri_uguali(n,matrice);
+
+                        printf("\n i numeri uguali al numero inserito sono %d", r);
+                break;
+
+                case 8: 
+                        printf("\n HAI SCELTO CERCA NUMERO PER RIGA\n");
+
+                        stampaMatrice(matrice);
+
+                        r=cerca_num_perRiga(matrice);
+                break;
+
+                case 9:
+                        printf("\n HAI SCELTO RICERCA SENTINELLA MATRICE\n");
+
+                        stampaMatrice(matrice);
+
+                        printf("\n inserisci il numero da cercare:  ");ù
+                        scanf("%d",&n);
+
+                        r=ricercaSentinellaMat(n,matrice);
+
+                        printf("\n il numero(%d)e' nella posizione %d%d",n,r);
 
                 default : printf(" hai sbagliato numero");     
 
@@ -98,7 +157,9 @@ int menu(void)
     printf("\n digita -3- per caricare a zero la matrice\n");
     printf("\n digita -4- per caricare manualmente la matrice\n");
     printf("\n digita -5- per stampare la diagonale\n");
-
+    printf("\n digita -6- per cercare un numero nella matrice\n");
+    printf("\n digita -7- per sapere quanti numeri uguali ci sono\n");
+    printf("\n digita -8- per cerca num per riga\n");
 
     scanf("%d",&risp);
 
@@ -156,7 +217,7 @@ void caricaMatrice(int m[][C])
     }
 }
 
-void stampaDiagonale(int m[][C])
+void stampaDiagonale(int m[][R])
 {
     for(int i=0;i<R;i++)
     {
@@ -165,6 +226,68 @@ void stampaDiagonale(int m[][C])
         for(int j=0;j<C;j++)
         {
             printf("\t");
+        }
+    }
+}
+
+int cerca_num(int x, int m[][C])
+{
+    for(int i =0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+            if(m[i][j]==x)
+            {
+                return m[i][j];
+            }
+        }
+    }
+}
+
+
+
+int numeri_uguali(int x,int m[][C])
+{
+    int c=0;
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+            if(m[i][j]==x)
+            {
+                c++;
+            }
+        }
+    }
+    return c;
+}
+
+int cerca_num_perRiga(int m[][C])
+{
+    int num;
+
+    for(int i=0;i<R;i++)
+    {
+        printf("\n inserisci il numero da cercare:  ");
+        scanf("%d",&num);
+
+        for(int j=0;j<C;j++)
+        {
+            if(m[i][j]==num)
+            {
+                printf("\n il numero c'e' %d",m[i][j]);
+            }
+        }
+    }
+}
+
+ricercaSentinellaMat(int x,int m[][C])
+{
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+            
         }
     }
 }

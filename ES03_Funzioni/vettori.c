@@ -146,6 +146,8 @@ int main()
 
             case 13 : printf("\n\n HAI SCELTO RICERCA A SENTINELLA");
 
+                      stampovett(vettore);
+
                       printf("\n inserisci il numero da cercare:  ");
                       scanf("%d", & num);
 
