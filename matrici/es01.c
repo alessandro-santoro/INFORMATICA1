@@ -23,7 +23,7 @@ int numeri_uguali(int x,int m[][C]);
 
 int cerca_num_perRiga(int m[][C]);
 
-int ricercaSentinellaMat(int x,int m[][C])
+//int ricercaSentinellaMat(int x,int m[][C]);
 
 
 
@@ -119,18 +119,19 @@ int main()
 
                         r=cerca_num_perRiga(matrice);
                 break;
-
+/*
                 case 9:
                         printf("\n HAI SCELTO RICERCA SENTINELLA MATRICE\n");
 
                         stampaMatrice(matrice);
 
-                        printf("\n inserisci il numero da cercare:  ");ù
+                        printf("\n inserisci il numero da cercare:  ");
                         scanf("%d",&n);
 
                         r=ricercaSentinellaMat(n,matrice);
 
-                        printf("\n il numero(%d)e' nella posizione %d%d",n,r);
+                        printf("\n il numero(%d)e' nella posizione %d",n,r);
+                break;*/
 
                 default : printf(" hai sbagliato numero");     
 
@@ -217,16 +218,12 @@ void caricaMatrice(int m[][C])
     }
 }
 
-void stampaDiagonale(int m[][R])
+void stampaDiagonale(int m[][C])
 {
-    for(int i=0;i<R;i++)
+    for(int i=0; i<R; i++)
     {
-        printf("%d\n",m[i][i]);
-
-        for(int j=0;j<C;j++)
-        {
-            printf("\t");
-        }
+        printf("%d\n", m[i][i]);
+        for(int j=0; j<i+1; j++) printf("\t");
     }
 }
 
@@ -281,7 +278,7 @@ int cerca_num_perRiga(int m[][C])
     }
 }
 
-ricercaSentinellaMat(int x,int m[][C])
+/*int ricercaSentinellaMat(int x,int m[][C])
 {
     for(int i=0;i<R;i++)
     {
@@ -290,4 +287,4 @@ ricercaSentinellaMat(int x,int m[][C])
             
         }
     }
-}
+}*/
