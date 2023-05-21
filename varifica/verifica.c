@@ -13,6 +13,8 @@ void stampaMatrice(int [][C]);
 
 void carica(int m[][C], int x);
 
+void nuovoInserisci(int m[][C], int x);
+
 
 
 int main()
@@ -59,6 +61,15 @@ int main()
                         carica(matrice,n);
                 break;
 
+                case 3: 
+                        printf("\n nuovo inserisci\n");
+
+                        printf("\n inserisci il numero:  ");
+                        scanf("%d",&n);
+
+                        nuovoInserisci(matrice,n);
+                break;
+
                 default : printf(" hai sbagliato numero");     
 
 
@@ -80,6 +91,7 @@ int menu(void)
     printf("\n\n alessandro santoro \n");
     printf("\n 1 carica rand\n");
     printf("\n 2 carica\n");
+    printf("\n 3 nuovo inserisci\n");
 
 
     scanf("%d",&risp);
@@ -117,12 +129,26 @@ void carica(int m[][C], int x)
     m[0][0]=x;
     for(int i=0;i<R;i++)
     {
-        printf("%d\t",m[i][i]);
-        m[i][i]+=2;
+        m[i][i]=m[i][i]+2;
+        for(int j=0;j<C;j++)
+        {
+            m[i][j]+=2;
+        }
+    }
+    stampaMatrice(m);
+}
+
+void nuovoInserisci(int m[][C], int x)
+{
+    m[0][0]=x;
+    int c=1;
+    for(int i=0; i<R;i++)
+    {
         for(int j=0;j<C;j++)
         {
             printf("%d\t",m[i][j]);
-            m[i][j]+=2;
+            c++;
+            m[i][j]=m[i][j]*c;
         }
     }
 }
