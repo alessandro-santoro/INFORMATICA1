@@ -21,13 +21,15 @@ void inserisci(int m[][C], int x);
 
 int cancella(int [][C],int x);
 
+int conta(int m[][C],int x, int y);
+
 int main()
 {
     srand(time(NULL));
 
     int matrice[R][C];
     int r;
-    int n;
+    int n,n2;
     int k;
 
 
@@ -101,6 +103,29 @@ int main()
                         r=cancella(matrice,n);
 
                         printf("\n i numeri eliminati sono %d", r);
+                break;
+
+                case 7:
+                        printf("\n carica\n");
+
+                        printf("\n inserisci il numero:  ");
+                        scanf("%d",&n);
+
+                        printf("\n inserisci il numero:  ");
+                        scanf("%d",&n2);
+
+                        if(n>n2)
+                        {
+                            for(int jj=n;jj<n2;jj--)
+                            {
+
+                            }
+                        }
+
+                        r=conta(matrice,n,n2);
+
+                        printf("\n i numeri sono %d",r);
+                break;                        
 
                 default : printf(" hai sbagliato numero");     
 
@@ -127,6 +152,7 @@ int menu(void)
     printf("\n 4 carica seconda verifica\n");
     printf("\n 5 inserisci\n");
     printf("\n 6 cancella\n");
+    printf("\n 7 conta \n");
 
     scanf("%d",&risp);
 
@@ -248,4 +274,21 @@ int cancella(int m[][C],int x)
     printf("\n matrice dopo\n");
     stampaMatrice(m);
     return z;
+}
+
+int conta(int m[][C],int x, int y)
+{
+    int c=0;
+    stampaMatrice(m);
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+            if(m[i][j]>x && m[i][j]<y)
+            {
+                c++;
+            }
+        }
+    }
+    return c;
 }
