@@ -23,6 +23,12 @@ int cancella(int [][C],int x);
 
 int conta(int m[][C],int x, int y);
 
+int massimo(int m[][C]);
+
+void ribaltaDiagonale(int m[][C]);
+
+void ribaltaMatrice(int m[][C]);
+
 int main()
 {
     srand(time(NULL));
@@ -125,7 +131,28 @@ int main()
                         r=conta(matrice,n,n2);
 
                         printf("\n i numeri sono %d",r);
-                break;                        
+                break;         
+
+                case 8:
+                        printf("\n massimo\n");
+
+                        r=massimo(matrice);
+
+                        printf("\n il massimo e' %d\n\n",r);
+                        stampaMatrice(matrice);    
+                break;       
+
+                case 9:
+                        printf("\n ribalta diagonale\n");
+
+                        ribaltaDiagonale(matrice);
+                break;  
+
+                case 10:
+                        printf("\n ribarlta matrice\n");
+
+                        ribaltaMatrice(matrice);
+                break;
 
                 default : printf(" hai sbagliato numero");     
 
@@ -146,13 +173,16 @@ int menu(void)
     int risp;
 
     printf("\n\n alessandro santoro \n");
-    printf("\n 1 carica rand\n");
-    printf("\n 2 carica\n");
-    printf("\n 3 nuovo inserisci\n");
-    printf("\n 4 carica seconda verifica\n");
-    printf("\n 5 inserisci\n");
-    printf("\n 6 cancella\n");
-    printf("\n 7 conta \n");
+    printf("\n 1 carica rand");
+    printf("\n 2 carica");
+    printf("\n 3 nuovo inserisci");
+    printf("\n 4 carica seconda verifica");
+    printf("\n 5 inserisci");
+    printf("\n 6 cancella");
+    printf("\n 7 conta ");
+    printf("\n 8 massimo");
+    printf("\n 9 ribalta diagonale");
+    printf("\n 10 ribalta matrice");
 
     scanf("%d",&risp);
 
@@ -291,4 +321,47 @@ int conta(int m[][C],int x, int y)
         }
     }
     return c;
+}
+
+int massimo(int m[][C])
+{
+    int max = m[0][0];
+
+    for(int i = 0; i < R; i++)
+
+        for(int j = 0; j < C; j++)
+
+            if(m[i][j] > max) max = m[i][j];
+    
+    return max;
+}
+
+void ribaltaDiagonale(int m[][C])
+{
+    int x=0;
+    printf("\n\n");
+    stampaMatrice(m);
+    for(int i=0,j=R-1;i<=R/2;i++,j--)
+    {
+        x=m[i][i];
+        m[i][i]=m[j][j];
+        m[j][j]=x;
+    }
+    printf("\n\n");
+    stampaMatrice(m);
+}
+
+void ribaltaMatrice(int m[][C])
+{
+    int z,y=0,x=0;
+    printf("\n\n");
+    stampaMatrice(m);
+    for(int i=0,j=C*R;i<=C*R/2;i++,j--)
+    {
+        z=m[i][x];
+        m[i][x]=m[j][y];
+        m[j][y]=z;
+    }
+    printf("\n\n");
+    stampaMatrice(m);
 }
