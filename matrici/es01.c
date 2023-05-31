@@ -25,7 +25,9 @@ int cerca_num_perRiga(int m[][C]);
 
 //int ricercaSentinellaMat(int x,int m[][C]);
 
+void pitagora(int m[][C]);
 
+int massimo(int m[][C]);
 
 int main()
 {
@@ -133,6 +135,24 @@ int main()
                         printf("\n il numero(%d)e' nella posizione %d",n,r);
                 break;*/
 
+                case 10:
+                        printf("\n pitagora\n");
+
+                        pitagora(matrice);
+
+                        stampaMatrice(matrice);
+                break;
+
+                case 11:
+                        printf("\nmassimo\n");
+
+                        stampaMatrice(matrice);
+
+                        r=massimo(matrice);
+
+                        printf("\n il massimo e' %d",r);
+                break;
+
                 default : printf(" hai sbagliato numero");     
 
 
@@ -161,6 +181,8 @@ int menu(void)
     printf("\n digita -6- per cercare un numero nella matrice\n");
     printf("\n digita -7- per sapere quanti numeri uguali ci sono\n");
     printf("\n digita -8- per cerca num per riga\n");
+    printf("\n digita 10 per pitagora\n");
+    printf("\n 11 massimo\n");
 
     scanf("%d",&risp);
 
@@ -288,3 +310,31 @@ int cerca_num_perRiga(int m[][C])
         }
     }
 }*/
+
+void pitagora(int m[][C])
+{
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+            m[i][j]=(i+1)*(j+1);
+        }
+    }
+}
+
+int massimo(int m[][C])
+{
+    int max=m[0][0];
+
+    for(int i=0;i<R;i++)
+    {
+        for(int j=0;j<C;j++)
+        {
+            if(m[i][j] > max)
+            {
+                max=m[i][j];
+            }
+        }
+    }
+    return max;
+}
