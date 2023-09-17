@@ -24,6 +24,8 @@ void stampamat(int m[][C]);
 
 void dispari(int m[][C], int y);
 
+void cercanum(int m[][C], int x);
+
 int main()
 {
     srand(time(NULL));
@@ -113,6 +115,16 @@ int main()
                         stampamat(matrice);
                 break;
 
+                case 8:
+                        printf("\n cerca num\n");
+
+                        printf("\n inserisci un numero:  ");
+                        scanf("%d",&n);
+
+                        cercanum(matrice, n);
+                        stampamat(matrice);
+                break;
+
                 default : printf(" hai sbagliato numero");     
 
 
@@ -139,6 +151,7 @@ int menu(void)
     printf("\n 5 casuali matrice");
     printf("\n 6 stampa matrice");
     printf("\n 7 dispari");
+    printf("\n 8 cerca num");
 
     scanf("%d",&risp);
 
@@ -239,5 +252,27 @@ void dispari(int m[][C], int y)
                 m[i][j]=y;
             }
         }
+    }
+}
+
+void cercanum(int m[][C],int x)
+{
+    int c=0;
+    for(int i=0;i<C;i++)
+    {
+        printf("\n");
+
+        for(int j=0;j<N;j++)
+        {
+            if(x==m[i][j])
+            {
+                printf("\n\n%d",m[i][j]);
+                c++;
+            }
+        }
+    }
+    if(c==0)
+    {
+        printf("\n non ci sono numeri uguali\n");
     }
 }
