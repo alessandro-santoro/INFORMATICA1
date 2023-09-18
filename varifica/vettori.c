@@ -1,3 +1,10 @@
+/** ****************************************************************************************
+* 
+* @author alessandro santoro 
+* @date 13/09/2023
+*
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -10,21 +17,40 @@ int menu(void);
 
 void caricarand(int v[]);
 
-void carica(int v[], int x);
-
 void stampavett(int v[]);
 
+void carica(int v[], int x);
+/*si inseriscano nell'array i primi N numeri pari maggiori di x. Il 2° parametro sia
+chiesto all'utente nel main: N.B. se l'utente inserisce un numero dispari si faccia nel main quanto necessario
+per passare il numero pari successivo*/
+
 void nuovoInserisci(int v[],int x);
+/*si inserisca il parametro x come primo elemento dell'array. Il secondo
+elemento dell'array sia il doppio del primo, il terzo elemento sia il triplo del secondo, il quarto sia il quadruplo
+del terzo e così via.*/
 
 int conta(int v[], int x);
+/*visualizza e conta gli elementi di indice pari maggiori di un intero x passato come
+parametro; la funzione restituisce quanti sono i numeri maggiori di x. Il 2° parametro sia chiesto
+all'utente nel main.*/
+
+int massimo(int v[]);
+/*Cerca il massimo fra gli elementi dell’array restituendo l'indice dell'elemento
+massimo.*/
 
 void causualimat(int m[][C]);
+/*Si avvalori tutta la matrice con numeri casuali compresi fra 10 e 20*/
 
 void stampamat(int m[][C]);
+/*Stampi sul monitor tutta la matrice per righe (si vada a capo per ogni nuova riga)*/
 
 void dispari(int m[][C], int y);
+/*Si sostituisca ogni elemento dispari presente nella matrice con il valore Y (2° parametro)*/
 
-void cercanum(int m[][C], int x);
+int pariMat(int m [ ] [ C ], int x);
+/*La funzione restituisce 1 se la matrice contiene solo numeri pari nella riga di indice x, zero
+altrimenti
+Nel main si richiami la funzione per tutte le righe della matrice*/
 
 int main()
 {
@@ -91,6 +117,15 @@ int main()
                 break;
 
                 case 5:
+                        printf("\n massimo\n");
+
+                        r=massimo(vett);
+                        stampavett(vett);
+
+                        printf("\n%d",r);
+                break;
+
+                case 6:
                         printf("\n casuali matrice\n");
 
                         causualimat(matrice);
@@ -98,13 +133,13 @@ int main()
                         stampamat(matrice);
                 break;
 
-                case 6:
+                case 7:
                         printf("\n stampa matrice\n");
 
                         stampamat(matrice);
                 break;
 
-                case 7:
+                case 8:
                         printf("\n dispari matrice\n");
 
                         printf("\n inserisci un numero:  ");
@@ -115,14 +150,14 @@ int main()
                         stampamat(matrice);
                 break;
 
-                case 8:
-                        printf("\n cerca num\n");
+                case 9:
+                        printf("\n pari mat\n"),
 
-                        printf("\n inserisci un numero:  ");
-                        scanf("%d",&n);
+                        for(int f=0;f<C;c++)
+                        {
+                            r=pariMat(matrice,n)
+                        }
 
-                        cercanum(matrice, n);
-                        stampamat(matrice);
                 break;
 
                 default : printf(" hai sbagliato numero");     
@@ -148,10 +183,11 @@ int menu(void)
     printf("\n 2 carica");
     printf("\n 3 nuovo insersci");
     printf("\n 4 conta");
-    printf("\n 5 casuali matrice");
-    printf("\n 6 stampa matrice");
-    printf("\n 7 dispari");
-    printf("\n 8 cerca num");
+    printf("\n 5 massimo");
+    printf("\n 6 casuali matrice");
+    printf("\n 7 stampa matrice");
+    printf("\n 8 dispari matrice");
+    printf("\n 9 pari mat");
 
     scanf("%d",&risp);
 
@@ -166,6 +202,14 @@ void caricarand(int v[])
     }
 
 
+}
+
+void stampavett(int v[])
+{
+    for(int i=0;i<N;i++)
+    {
+        printf("\t%d",v[i]);
+    }
 }
 
 void carica(int v[], int x)
@@ -183,14 +227,6 @@ void carica(int v[], int x)
 
 }
 
-void stampavett(int v[])
-{
-    for(int i=0;i<N;i++)
-    {
-        printf("\t%d",v[i]);
-    }
-}
-
 void nuovoInserisci(int v[],int x)
 {
     int c=0;
@@ -205,7 +241,7 @@ void nuovoInserisci(int v[],int x)
 int conta(int v[], int x)
 {
     int c=0;
-    for(int i=0;i<N;i++)
+    for(int i=0;i<N;i+=2)
     {
         if(v[i]>x)
         {
@@ -213,6 +249,16 @@ int conta(int v[], int x)
         }
     }
     return c;
+}
+
+int massimo(int v[]) 
+{
+    int max = 0;
+    for (int i = 0; i<N; i++)
+    {
+        if(v[i]>v[max]) max = i;
+    }
+    return max;
 }
 
 void causualimat(int m[][C])
@@ -230,8 +276,6 @@ void stampamat(int m[][C])
 {
     for(int i=0;i<R;i++)
     {
-        printf("\n");
-
         for(int j=0;j<C;j++)
         {
             printf("\t%d",m[i][j]);
@@ -243,8 +287,6 @@ void dispari(int m[][C], int y)
 {
     for(int i=0;i<C;i++)
     {
-        printf("\n");
-
         for(int j=0;j<R;j++)
         {
             if(m[i][j]%2==1)
@@ -255,24 +297,17 @@ void dispari(int m[][C], int y)
     }
 }
 
-void cercanum(int m[][C],int x)
+int pariMat(int m [ ] [ C ], int x);
 {
-    int c=0;
     for(int i=0;i<C;i++)
     {
-        printf("\n");
-
-        for(int j=0;j<N;j++)
+        for(int j=0;j<R;j++)
         {
-            if(x==m[i][j])
+            if(m[i][j]%2==0)
             {
-                printf("\n\n%d",m[i][j]);
-                c++;
+                return 1
             }
         }
     }
-    if(c==0)
-    {
-        printf("\n non ci sono numeri uguali\n");
-    }
+    return 0;
 }
