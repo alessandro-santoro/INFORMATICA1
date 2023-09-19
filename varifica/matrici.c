@@ -28,6 +28,14 @@ int pariMat(int m [ ] [ C ], int x);
 altrimenti
 Nel main si richiami la funzione per tutte le righe della matrice*/
 
+void diagonale(int m[][C]);
+/*Si mettano degli zero negli elementi corrispondenti alla diagonale principale e 1 negli
+elementi corrispondenti alla diagonale secondaria*/
+
+void PitagoricaMat(int m[][C]);
+/*Nella prima riga (indice zero) si mettano i multipli di 1; nella 2° riga (indice 1) i multipli di 2
+e così via.*/
+
 int main()
 {
     srand(time(NULL));
@@ -88,6 +96,21 @@ int main()
 
                 break;
 
+                case 5:
+                        printf("\n diagonale\n");
+
+                        diagonale(matrice);
+
+                        stampamat(matrice);
+                break;
+
+                case 6: printf("\n pitagora\n");
+
+                        PitagoricaMat(matrice);
+
+                        stampamat(matrice);
+                break;
+
                 default : printf(" hai sbagliato numero");     
 
 
@@ -111,6 +134,8 @@ int menu(void)
     printf("\n 2 stampa matrice");
     printf("\n 3 dispari matrice");
     printf("\n 4 pari mat");
+    printf("\n 5 diagonale");
+    printf("\n 6 pitagora");
 
     scanf("%d",&risp);
 
@@ -167,4 +192,21 @@ int pariMat(int m [ ] [ C ], int x)
         }
     }
     return 0;
+}
+
+void diagonale(int m[][C])
+{
+    for(int i=0, j=C-1; i<C; i++, j--){
+        m[i][i] = 0;
+        m[j][i] = 1;
+    }
+}
+
+void PitagoricaMat(int m[][C])
+{
+    for(int i = 0; i<R; i++){
+        for (int j = 0; j<C; j++){
+            m[i][j] = (i+1) * (j+1);
+        }
+    }
 }
