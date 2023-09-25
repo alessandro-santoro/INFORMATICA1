@@ -1,28 +1,45 @@
 #include <stdio.h>
 #include <string.h>
 
-#define n 1000
+#define R 20
+#define C 10
 
-int main() 
+void caricast(char st[][C]);
+
+void stampastr(char st[][C]);
+
+int main()
 {
-    char str1[n], str2[n];
-    int a, b;
+    char stmat[R][C];
+    int i;
 
-    scanf("%s", str1);
-    scanf("%s", str2);
-    printf("%s %s", str1, str2);
+    caricast(stmat);
+
+    stampastr(stmat);
 
 
-    a = strlen(str1);
-    printf("\n\n%d\n\n", a);
 
-    strcpy(str1, str2);
-    printf("1: %s\n\n2: %s", str1, str2);
+}
 
-    strcat(str1, str2);
-    printf("\n\n%s\n\n", str1);
+void caricastr(char st[][C])
+{
+    printf("inserisci * per terminare la stringa\n ");
+    printf("NON SUPERARE I 19 CARATTERI\n\n");
 
-    b = strcmp(str1,str2);
-    printf("%d", b);
+    for(int i=0;i<R;i++)
+    {
+        scanf("%s",st[i]);
+    }
 
+}
+
+void stampastr(char st[][C])
+{
+    int c=0;
+    for(int i=0;i<R;i++)
+    {
+        printf("\n\nstringa %d:",c);
+        c++;
+        printf("%s",st[i]);
+    }
 }
