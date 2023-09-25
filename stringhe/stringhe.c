@@ -6,13 +6,17 @@
 
 void caricastr(char st[][C]);
 void stampastr(char st[][C]);
+int indicelung(char st[][C]);
 
 int main()
 {
     char stmat[R][C];
+    int r;
 
     caricastr(stmat);
     stampastr(stmat);
+    r=indicelung(stmat);
+    printf("\n\n%d",r);
 }
 
 void caricastr(char st[][C])
@@ -38,4 +42,18 @@ void stampastr(char st[][C])
         c++;
         printf("%s",st[i]);
     }
+}
+
+int indicelung(char st[][C])
+{
+    int max=0;
+
+    for(int i=0;i<C;i++)
+    {
+        if(strlen(st[i])>strlen(st[max]))
+        {
+            max=i;
+        }
+    }
+    return max;
 }
