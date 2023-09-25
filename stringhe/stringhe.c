@@ -4,30 +4,26 @@
 #define R 20
 #define C 10
 
-void caricast(char st[][C]);
-
+void caricastr(char st[][C]);
 void stampastr(char st[][C]);
 
 int main()
 {
     char stmat[R][C];
-    int i;
 
-    caricast(stmat);
-
+    caricastr(stmat);
     stampastr(stmat);
-
-
-
 }
 
 void caricastr(char st[][C])
 {
     printf("inserisci * per terminare la stringa\n ");
     printf("NON SUPERARE I 19 CARATTERI\n\n");
-
-    for(int i=0;i<R;i++)
+    int c=0;
+    for(int i=0;i<C;i++)
     {
+        printf("\n\n stringa %d: ",c);
+        c++;
         scanf("%s",st[i]);
     }
 
@@ -36,7 +32,7 @@ void caricastr(char st[][C])
 void stampastr(char st[][C])
 {
     int c=0;
-    for(int i=0;i<R;i++)
+    for(int i=0;i<C;i++)
     {
         printf("\n\nstringa %d:",c);
         c++;
