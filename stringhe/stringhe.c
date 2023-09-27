@@ -23,11 +23,16 @@ int main()
     stampa(strmat);
 
     r=piuLunga(strmat);
-    printf("\n\n la parola piu' lunga e'%d\n\n",r);
+    printf("\n\n la stringa piu' lunga e'\n\n%d\n\n",r);
 
     scambia(strmat,5,9);
     stampa(strmat);
 
+    r = primaAlfabeto(strmat);
+    printf("\n\nprima parola in ordine alfabetico: %s", strmat[r]);
+
+    ordina(strmat);
+    stampa(strmat);
 }
 
 void carica(char m[][C])
@@ -46,12 +51,15 @@ void carica(char m[][C])
 
 void stampa(char m[][C])
 {
+    int a;
     int c=0;
     for(int i=0;i<C;i++)
     {
+        a=strlen(m[i]);
         printf("\n\nstringa %d:",c);
         c++;
-        printf("%s lunghezza della stringa: %d",m[i],strlen(m[i]));
+        printf("\n%s ",m[i]);
+        printf("\nlunghezza della stringa: %d",a);
     }
 }
 
@@ -95,7 +103,7 @@ void ordina(char m[][C])
 {
     for(int i = 0; i<R-1; i++)
     {
-        for(int c = i+1; j<R; c++)
+        for(int c = i+1; c<R; c++)
         {
             if(strcmp(m[i], m[c]) > 0)
             {
