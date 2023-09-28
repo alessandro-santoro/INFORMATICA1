@@ -1,3 +1,10 @@
+/** ****************************************************************************************
+* 
+* @author alessandro santoro
+* @date 13/09/2023
+*
+*/
+
 #include <stdio.h>
 #include <string.h>
 
@@ -9,9 +16,6 @@ void stampa(char m[][C]);  //stampa sul monitor le stringhe seguite dalla loro l
 int piuLunga(char m[][C]); // la funzione restituisce l’indice della riga dove è memorizzata la stringa più lunga e visualizza nel main la stringa
 void scambia(char m[][C], int k, int t); /*nella funzione si scambiano tra di loro le stringhe di indice k e t .  Eseguita la funzione la stringa
                                              della riga k+1 (indice k)  si trovi nella riga t+1 e quella della riga t+1 si trovi nella riga k+1 */
-int primaAlfabeto(char m[][C]);  // la funzione restituisce l’indice della stringa che è la prima in ordine alfabetico
-void ordina(char m[][C]);  // terminata l’esecuzione della funzione, tutte le stringhe sono in ordine alfabetico
-
 
 int main()
 {
@@ -26,12 +30,6 @@ int main()
     printf("\n\n la stringa piu' lunga e'\n\n%d\n\n",r);
 
     scambia(strmat,5,9);
-    stampa(strmat);
-
-    r = primaAlfabeto(strmat);
-    printf("\n\nprima parola in ordine alfabetico: %s", strmat[r]);
-
-    ordina(strmat);
     stampa(strmat);
 }
 
@@ -85,30 +83,4 @@ void scambia(char m[][C], int k, int t)
     strcpy(m[k], m[t]);
     strcpy(m[t], a);
 
-}
-
-int primaAlfabeto(char m[][C])
-{
-    int a = 0;
-
-    for(int i = 1; i<R; i++)
-    {
-        if(strcmp(m[a], m[i]) > 0) a = i;
-    }
- 
-    return a;
-}
-
-void ordina(char m[][C])
-{
-    for(int i = 0; i<R-1; i++)
-    {
-        for(int c = i+1; c<R; c++)
-        {
-            if(strcmp(m[i], m[c]) > 0)
-            {
-                scambia(m, i, c);
-            }
-        }
-    }
 }
