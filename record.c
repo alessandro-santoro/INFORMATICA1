@@ -1,3 +1,10 @@
+/** ****************************************************************************************
+* 
+* @author alessandro santoro
+* @date 1/10/2023
+*
+*/
+
 #include <stdio.h>
 #include <string.h>
 
@@ -6,40 +13,64 @@
 struct data
 {
     int giorni;
-    char mesi[12];
+    char mese[12];
     int anno;
-};
+} typedef data;
 
 struct studente
 {
-    char cogn[20]:
+    char cogn[20];
     char nome[20];
-    struct data,studente
-    int voti[10];
-};
+    data nascita;
+    int voti[N];
+} typedef studente;
+
+void inserimento(studente *st1);
+
+void stampa(studente st1);
 
 int main()
 {
     studente s1;
+    studente s2;
 
-    printf("\ninserisci il cognome:  ");
-    scanf("%s",s1.cogn);
+    inserimento(&s1);
 
-    printf("\n inscerisi il nome:  ");
-    scanf("%s",s1.nome);
+    s2=s1;
 
-    printf("\n inserisci la data di nascita\n");
-    printf("\n inserisci il giorno:  ");
-    scanf("%s",s1.data.giorni);
-    printf("\n inserisci il mese:  ");
-    scanf("%s",s1.data.mese);
-    printf("\n inserisci il giorno:  ");
-    scanf("%s",s1.data.anno);
+    stampa(s2);
+}
 
-    do{
-       printf("\n inserisci il voto:  ");
-       scanf("%d",&s1.voti[N]);
-       c++; 
-    }while(c<N);
+void inserimento(studente *st1)
+{
+    printf("\n inserisci il cognome:\t");
+    scanf("%s",st1->cogn);
 
+    printf("\n inserisci il nome:\t");
+    scanf("%s",st1->nome);
+
+    printf("\n insersci il giorno di nascita:\t");
+    scanf("%d",&st1->nascita.giorni);
+
+    printf("\n insersci il mese di nascita:\t");
+    scanf("%s",st1->nascita.mese);
+
+    printf("\n insersci il anno di nascita:\t");
+    scanf("%d",&st1->nascita.anno);
+
+    for(int i=0;i<N;i++)
+    {
+        printf("inserisci il %d voto:\t",i+1);
+        scanf("%d",&st1->voti[i]);
+    }
+}
+
+void stampa(studente st1)
+{
+    printf("\n nome studente:\t%s\t%s",st1.cogn,st1.nome);
+    printf("\n data di nascita studente:\t%d|%s|%d",st1.nascita.giorni,st1.nascita.mese,st1.nascita.anno);
+    for(int i=0;i<N;i++)
+    {
+        printf("\n%d°:\t%d",i+1,st1.voti[i]);
+    }
 }
