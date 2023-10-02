@@ -19,6 +19,7 @@ struct data
 
 struct studente
 {
+    int matricola;
     char cogn[20];
     char nome[20];
     data nascita;
@@ -43,6 +44,9 @@ int main()
 
 void inserimento(studente *st1)
 {
+    printf("\n inserisci numero matricola:\t");
+    scanf("%d",&st1->matricola);
+
     printf("\n inserisci il cognome:\t");
     scanf("%s",st1->cogn);
 
@@ -67,6 +71,7 @@ void inserimento(studente *st1)
 
 void stampa(studente st1)
 {
+    printf("\n numero matricola:\t%d",st1.matricola);
     printf("\n nome studente:\t%s\t%s",st1.cogn,st1.nome);
     printf("\n data di nascita studente:\t%d|%s|%d",st1.nascita.giorni,st1.nascita.mese,st1.nascita.anno);
     for(int i=0;i<N;i++)
