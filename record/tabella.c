@@ -33,15 +33,30 @@ void inserimento(studente st1[]);
 
 void stampa(studente st1[]);
 
+int ricercaCog(studente st[], char cog[]);
+
 int main()
 {
     srand(time(NULL));
+
+    int r;
+    char x[T];
 
     studente s1[T];
 
 
     inserimento(s1);
     stampa(s1);
+
+    r = ricercaCog(s1, x);
+    if(r!=-1) 
+    {
+        printf("\n\ncognome trovato: %s\n\n", s1[r].cogn);
+    }
+    else 
+    {
+        printf("cognome non trovato\n\n");
+    }
 
 }
 
@@ -91,5 +106,14 @@ void stampa(studente st1[])
             printf("\t%d",st1[j].voti[i]);
         }
     }
+}
+
+int ricercaCog(studente st[], char cog[])
+{
+    for(int i = 0; i<T; i++)
+    {
+        if(strcmp(st[i].cogn, cog) == 0) return i;
+    }
+    return -1;
 }
 
