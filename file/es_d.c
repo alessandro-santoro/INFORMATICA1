@@ -28,7 +28,7 @@ int main()
 void copia(char filein[], char fileout[])
 {
 
-    char c;
+    int c;
 
 
     FILE * input = fopen(filein, "r");
@@ -46,7 +46,7 @@ void copia(char filein[], char fileout[])
 
 void maiuscolo(char filein[], char fileout[])
 {
-    char x;
+    int x;
 
     FILE * minusc = fopen(filein, "r");
     FILE * maiusc = fopen(fileout, "w");
@@ -70,21 +70,21 @@ void conta_l_p_r(char filein[])
 {
     FILE * file = fopen(filein, "r");
 
-    char c;
+    int x;
 
     while(!feof(file))
     {
-        c = getc(file);
+        x = getc(file);
 
-        if(c != ' ' && c != '\n')
+        if(x != ' ' && x != '\n')
         {
             lettere++;
         }
-        else if(c == ' ')
+        else if(x == ' ')
         {
             parole++;
         }
-        else if(c == '\n') 
+        else if(x == '\n') 
         {
             righe++; 
             parole++;
@@ -92,4 +92,34 @@ void conta_l_p_r(char filein[])
     }
 
     fclose(file);
+}
+
+void pariDispari(char fileinput[], char filepsri[], char filedispari[])
+{
+    FILE * input = fopen(fileinput, "r");
+    FILE * pari = fopen(filepari, "w");
+    FILE * dispari = fopen(filedispari, "w");
+
+    int x;
+
+    while(!feof(input))
+    {
+        x = getc(input);
+
+        if(x % 2== 0 && x != ' ') 
+        {
+            putc(x, pari);
+            putc(' ', pari);
+        }
+        else 
+        {
+            putc(x, dispari);
+            putc(' ', pari);
+        }
+    }
+
+    fclose(input);
+    fclose(dispari);
+    fclose(pari);
+
 }
