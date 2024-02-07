@@ -1,0 +1,2 @@
+#ifndef CONTATORE_H
+#define CONTATORE_H
