@@ -1,3 +1,4 @@
-#include "contatore.h"
-#ifndef CONTATOREDOPPIO_H
-#define CONTATOREDOPPIO_H
+#include <iostream>
+#include "Contatore.h"
+
+using namespace std;
