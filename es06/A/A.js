@@ -1,7 +1,7 @@
 const button = document.getElementById("myButton");
 
 button.addEventListener('mouseover', function(){
-    button.style.backgroundColor = "lightgreen";
+    button.style.backgroundColor = "red";
 });
 
 button.addEventListener('mouseout', function(){

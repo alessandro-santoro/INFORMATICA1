@@ -1,7 +1,7 @@
 const text = document.getElementById("myInput");
 
 text.addEventListener("focus", () => {
-    text.style.backgroundColor = "lightgreen";
+    text.style.backgroundColor = "red";
 });
 
 text.addEventListener("blur", () => {
