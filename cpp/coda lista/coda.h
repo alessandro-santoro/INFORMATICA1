@@ -1,5 +1,5 @@
-#ifndef LISTA_H
-#define LISTA_H
+#ifndef CODA_H
+#define CODA_H
 
 #include <iostream>
 using namespace std;
@@ -11,16 +11,16 @@ struct nodo{
 
 }typedef nodo;
 
-class lista{
+class coda{
 
     private: 
-        nodo * testa;// il primo
+        nodo * testa;
         nodo * p;
 
 
     public: 
 
-        lista(){
+        coda(){
 
             testa = NULL;
         }

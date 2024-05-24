@@ -1,5 +1,5 @@
 #include <iostream>
-#include "lista_concatenata.h"
+#include "lista.h"
 
 using namespace std;
 
