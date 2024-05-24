@@ -1,26 +1,34 @@
-#ifndef lista_h
-#define lista_h
+#ifndef LISTA_CONCATENATA_H
+#define LISTA_CONCATENATA_H
+
 #include <iostream>
+using namespace std;
 
 struct nodo{
-    int dato;
-    nodo * next;
+
+    int info;
+    struct nodo * next;
 
 }typedef nodo;
 
 class lista{
 
-    private:
-        nodo*testa;
-    public:
-    lista(){
-        testa=NULL;
+    private: 
+        nodo * testa;// il primo
+        nodo * p;
 
-    }
 
-    void pusch(int);
-    void pop();
-    void top();
-    void printf();
-    
+    public: 
+
+        lista(){
+
+            testa = NULL;
+        }
+
+        void push(int);
+        void pop();
+        int top();
+        void stampa();
+
+
 }
